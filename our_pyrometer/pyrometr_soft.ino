@@ -12,6 +12,9 @@ float ems = 1.0; // Domyslna emisyjnosc
 
 void setup() {
 
+  // Serial port for debugging
+  Serial.begin(115200);
+
   lcd.init();                   // Inicjalizacja wyświetlacza
   lcd.clear();
   lcd.backlight();     			// Włącz podświetlenie
@@ -27,7 +30,6 @@ void setup() {
   // Wyświetl początkowe informacje
   lcd.setCursor(0, 0);  // Ustaw kursor w pierwszej linii
   lcd.print("Temp: ");
-  
   lcd.setCursor(0, 1);  // Ustaw kursor w drugiej linii
   lcd.print("Emissivity: ");
   lcd.print(ems);  // Wyświetl początkową wartość emisyjności
@@ -38,6 +40,13 @@ void loop() {
   // Odczyt temperatury z czujnika
   float ObjTemp = mlx.readObjectTempC();  // Odczyt temperatury obiektu
 
+  Serial.println("Temp: "); //Output data to serial
+  Serial.println(ObjTemp);
+  Serial.println(" C");
+  Serial.println(223); // Degree symbol (optional: lcd.write(233)), ASCII or something...(?)
+  Serial.println("Emissivity: ");
+  Serial.println(ems);
+  
   // Wyświetl temperaturę na wyświetlaczu
   lcd.setCursor(6, 0);  // Ustaw kursor po "Temp: " (6 kolumna w pierwszej linii)
   lcd.print(ObjTemp);  // Wyświetl temperaturę
