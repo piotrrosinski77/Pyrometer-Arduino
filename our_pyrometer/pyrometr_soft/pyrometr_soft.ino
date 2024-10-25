@@ -26,17 +26,19 @@ void setup() {
 
   // Serial port for debugging
   Serial.begin(115200);
-	
+	Serial.print("Initializing LCD...\n");
   lcd.init();                   // Inicjalizacja wyświetlacza
   lcd.clear();
   lcd.backlight();     			// Włącz podświetlenie
   lcd.setCursor(0, 0); 			// Ustaw kursor na początku (wiersz 0, kolumna 0)
   lcd.createChar(0, epsilon);   // created E for emissivity (greek alphabet)
+  Serial.print("Created char epsilon\n");
 
   // Inicjalizacja czujnika MLX90614
   if (!mlx.begin()) {
     lcd.setCursor(0, 1); // Przejdź do drugiej linii
     lcd.print("MLX error!");
+    Serial.print("MLX error!\n");
     while (1);  // Zatrzymaj program, jeśli czujnik nie działa
   }
 
@@ -56,9 +58,10 @@ void loop() {
 
   Serial.println("Temperature: "); //Output data to serial
   Serial.println(ObjTemp);
-  Serial.println(" C");
+  Serial.println("\n");
   Serial.println("Emissivity: ");
   Serial.println(ems);
+  Serial.println("\n");
   
   // Wyświetl temperaturę na wyświetlaczu
   lcd.setCursor(6, 0);  // Ustaw kursor po "Temp: " (6 kolumna w pierwszej linii)
