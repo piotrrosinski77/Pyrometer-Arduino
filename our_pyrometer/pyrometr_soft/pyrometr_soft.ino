@@ -2,6 +2,12 @@
 #include <Adafruit_MLX90614.h>
 #include <LiquidCrystal_I2C.h>
 
+// Define buttons
+#define BTN1 2
+#define BTN2 3 
+#define BTN3 4 
+#define BTN4 5 
+
 // Ustaw adres I2C dla wyświetlacza (zmień na odpowiedni, np. 0x27)
 LiquidCrystal_I2C lcd(0x27, 16, 2);  // 16 znaków, 2 linie
 
@@ -24,9 +30,15 @@ float ems = 1.0; // Domyslna emisyjnosc
 
 void setup() {
 
+  // Keyboard set as pull-up input
+  pinMode(key1, INPUT_PULLUP);
+  pinMode(key2, INPUT_PULLUP);
+  pinMode(key3, INPUT_PULLUP);
+  pinMode(key4, INPUT_PULLUP); 
+
   // Serial port for debugging
-  Serial.begin(115200);
-	Serial.print("Initializing LCD...\n");
+  Serial.begin(9600);
+  Serial.print("Initializing LCD...\n");
   lcd.init();                   // Inicjalizacja wyświetlacza
   lcd.clear();
   lcd.backlight();     			// Włącz podświetlenie
@@ -53,6 +65,27 @@ void setup() {
 
 
 void loop() {
+	
+  // Check whether the buttons are pressed or not
+  int BTN1V = digitalRead(BTN1);
+  int BTN2V = digitalRead(BTN2);
+  int BTN3V = digitalRead(BTN3);
+  int BTN4V = digitalRead(BTN4);	
+  
+  if(!BTN1V){
+	  Serial.println("key 1 is pressed");
+	  }
+  if(!BTN2V){
+      Serial.println("key 2 is pressed");
+      }
+  if(!BTN3V){
+      Serial.println("key 3 is pressed");
+      }
+  if(!BTN4V){
+      Serial.println("key 4 is pressed");
+      }          
+  delay(100);
+		
   // Odczyt temperatury z czujnika
   float ObjTemp = mlx.readObjectTempC();  // Odczyt temperatury obiektu
 
