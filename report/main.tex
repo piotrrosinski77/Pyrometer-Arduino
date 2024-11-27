@@ -1,0 +1,18 @@
+\documentclass[12pt]{report}
+\input{libraries.tex} %dodanie wymaganych bibliotek
+\geometry{a4paper, left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+\begin{document}
+    \input{titlepage.tex}
+    \newgeometry{left=3.5cm, right=2.5cm, top=2.5cm, bottom=2cm}
+    \onehalfspacing
+    \setstretch{1.55}
+    \tableofcontents
+    \newgeometry{left=3.5cm, right=2.5cm, top=2.5cm, bottom=2.5cm}
+    \doublespacing
+    \input{chapter_1.tex}
+    \input{chapter_2.tex}
+    \input{chapter_3.tex}
+    \input{chapter_4.tex}
+    \input{chapter_5.tex}
+    \input{bib.tex}
+\end{document}
