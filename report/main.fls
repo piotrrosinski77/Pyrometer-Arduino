@@ -233,6 +233,15 @@ INPUT chapter_4.tex
 INPUT ./chapter_5.tex
 INPUT ./chapter_5.tex
 INPUT chapter_5.tex
+INPUT ./chapter_6.tex
+INPUT ./chapter_6.tex
+INPUT chapter_6.tex
+INPUT ./chapter_7.tex
+INPUT ./chapter_7.tex
+INPUT chapter_7.tex
+INPUT ./chapter_8.tex
+INPUT ./chapter_8.tex
+INPUT chapter_8.tex
 INPUT ./bib.tex
 INPUT ./bib.tex
 INPUT bib.tex
