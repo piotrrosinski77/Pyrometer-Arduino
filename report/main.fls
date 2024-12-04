@@ -245,6 +245,10 @@ INPUT chapter_8.tex
 INPUT ./bib.tex
 INPUT ./bib.tex
 INPUT bib.tex
+INPUT c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd
+INPUT c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1732902021 "c:/Users/piotr/Downloads/Pyrometer-Arduino/report/main.tex" "main.pdf" "main" 1732902023 0
-  "bib.tex" 1732714750 167 4dddccfe59e9af141160125e52ba0cfe ""
+["pdflatex"] 1733315973 "c:/Users/piotr/Downloads/Pyrometer-Arduino/report/main.tex" "main.pdf" "main" 1733315976 0
+  "bib.tex" 1733315764 303 1d633bf6e0ca8ea3aea17920aaf2462e ""
   "c:/Users/piotr/Downloads/Pyrometer-Arduino/report/main.tex" 1732901237 675 59483f18c2b1051ed66c65ef3ce852e8 ""
   "c:/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1697240993 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2023/texmf-dist/fonts/map/fontname/texfonts.map" 1697273120 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -11,6 +11,7 @@
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1440.tfm" 1697272451 3584 3169d30142b88a27d4ab0e3468e963a2 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm" 1697272451 3584 3c76ccb63eda935a68ba65ba9da29f1a ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm" 1697272451 3584 406ad7b70d9a41f7833f92b6313150c8 ""
+  "c:/texlive/2023/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm" 1697272451 1536 487c9b46984a816c7ed238d0674595c7 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1697239628 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1697239628 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "c:/texlive/2023/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1697240952 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -60,6 +61,7 @@
   "c:/texlive/2023/texmf-dist/tex/latex/base/inputenc.sty" 1697274849 5048 4a74b0804469fbfae7849704c4687a07 ""
   "c:/texlive/2023/texmf-dist/tex/latex/base/report.cls" 1697274849 23203 eb8fb57cc7a1166aa455e38e2f887972 ""
   "c:/texlive/2023/texmf-dist/tex/latex/base/size12.clo" 1697274849 8449 9de778d73ba774a5f2bd601f23f8922e ""
+  "c:/texlive/2023/texmf-dist/tex/latex/base/t1cmtt.fd" 1697274849 2443 955a820f7890344dc6c6ca236a5c2990 ""
   "c:/texlive/2023/texmf-dist/tex/latex/caption/caption.sty" 1697240651 56128 c2ccf1a29d78c33bc553880402e4fb9a ""
   "c:/texlive/2023/texmf-dist/tex/latex/caption/caption3.sty" 1697240651 72619 ee90b6612147680fd73c3b1406a74245 ""
   "c:/texlive/2023/texmf-dist/tex/latex/caption/subcaption.sty" 1697240651 12494 0c0cdb824278a4d51cefeb2e79901315 ""
@@ -109,7 +111,7 @@
   "c:/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1697281496 4750288 3c81ae0e61ea5051a9e1e981a6246c40 ""
   "c:/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1697281122 8195436 473cd72f10b7b3cc659031ba475e7237 ""
   "c:/texlive/2023/texmf.cnf" 1697280950 713 e69b156964470283e0530f5060668171 ""
-  "chapter_1.tex" 1732901142 103 4fdcce9a05d6d3f6173dc3139228edc0 ""
+  "chapter_1.tex" 1733315972 1728 19d57e951ac74e0c12d1916194dde9be ""
   "chapter_2.tex" 1732900997 217 ef77a9774d8131d80237491d070d64d4 ""
   "chapter_3.tex" 1732901006 250 c6ba98bc80da99a459c72ef618bc5c84 ""
   "chapter_4.tex" 1732901015 285 aaf2cc73ea8f382e4d1c522d8965e359 ""
@@ -119,10 +121,10 @@
   "chapter_8.tex" 1732901145 32 14f793fa49ada5a2439a7d10d969b3fb ""
   "images/logo PWr kolor poziom.png" 1697974717 29096 21531e091585832a378f09116631fd27 ""
   "libraries.tex" 1730743287 2098 6b10bbfe69582d061702ee0228d8ec34 ""
-  "main.aux" 1732902023 6229 eeda07805ceb5bc9997271175ace8e6a "pdflatex"
-  "main.out" 1732902023 8523 945c954f07bc31086329b570f353e2ba "pdflatex"
+  "main.aux" 1733315975 6265 7eaac04d695039d577a36fe39f089b64 "pdflatex"
+  "main.out" 1733315975 8523 945c954f07bc31086329b570f353e2ba "pdflatex"
   "main.tex" 1732901237 675 59483f18c2b1051ed66c65ef3ce852e8 ""
-  "main.toc" 1732902023 3479 8f3c0745573c7035b93cbcc6ecf93f6b "pdflatex"
+  "main.toc" 1733315975 3487 52ede92000ea3d1bed278d8a43456066 "pdflatex"
   "titlepage.tex" 1732713518 954 bb8299e1155ce8cd9061e3143c57599e ""
   (generated)
   "main.aux"
