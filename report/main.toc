@@ -5,34 +5,34 @@
 \contentsline {section}{\numberline {1.3}Zakres projektu}{4}{section.1.3}%
 \contentsline {chapter}{\numberline {2}Założenia projektowe}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Opis założeń funkcjonalnych}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Opis założeń konstrukcyjnych}{5}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Opis założeń środowiskowych}{5}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Opis założeń ekonomicznych}{5}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Charakterystyka wykorzystanych komponentów sprzętowych}{6}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Mikrokontroler Arduino Uno}{6}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Czujnik temperatury MLX90614}{6}{section.3.2}%
-\contentsline {section}{\numberline {3.3}4-przyciskowa klawiatura}{6}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Wyświetlacz LCD z konwerterem I2C HD44780}{6}{section.3.4}%
-\contentsline {chapter}{\numberline {4}Analiza struktury zastosowanego oprogramowania}{7}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Połączenie z czujnikiem temperatury MLX90614}{7}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Połączenie z wyświetlaczem LCD HD44780}{7}{section.4.2}%
-\contentsline {section}{\numberline {4.3}Synchroniczna współpraca LCD i czujnika temperatury z wykorzystaniem mikrokontrolera Arduino}{7}{section.4.3}%
-\contentsline {chapter}{\numberline {5}Uruchomienie projektu i skalibrowanie urządzenia}{8}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Proces uruchomienia}{8}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Kalibracja urządzenia}{8}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Wykonanie testów i dokonanie odpowiednich pomiarów}{9}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Opis metodyki testowania}{9}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Przygotowanie do testów}{9}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Przebieg testów}{9}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Dokonanie pomiarów}{9}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Analiza wyników}{9}{section.6.5}%
-\contentsline {chapter}{\numberline {7}Instrukcja użytkowania}{10}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Krótki opis pirometru i jego przeznaczenia}{10}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Ostrzeżenia dotyczące pomiarów wysokich temperatur/kontaktu z gorącymi obiektami}{10}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Podłączenie pirometru do źródła zasilania}{10}{section.7.3}%
-\contentsline {section}{\numberline {7.4}Opcjonalna zmiana parametrów (emisyjność, odległość dokonywania pomiaru)}{10}{section.7.4}%
-\contentsline {section}{\numberline {7.5}Czyszczenie powierzchni czujnika}{10}{section.7.5}%
-\contentsline {section}{\numberline {7.6}Informacje o przechowywaniu}{10}{section.7.6}%
-\contentsline {section}{\numberline {7.7}Typowe problemy (np. brak odczytu, błędne wyniki) i ich możliwe rozwiązania}{10}{section.7.7}%
-\contentsline {chapter}{\numberline {8}Podsumowanie i Wnioski}{11}{chapter.8}%
-\contentsline {chapter}{Bibliografia}{12}{section*.2}%
+\contentsline {section}{\numberline {2.2}Opis założeń konstrukcyjnych}{6}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Opis założeń środowiskowych}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Opis założeń ekonomicznych}{6}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Charakterystyka wykorzystanych komponentów sprzętowych}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Mikrokontroler Arduino Uno}{7}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Czujnik temperatury MLX90614}{7}{section.3.2}%
+\contentsline {section}{\numberline {3.3}4-przyciskowa klawiatura}{7}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Wyświetlacz LCD z konwerterem I2C HD44780}{7}{section.3.4}%
+\contentsline {chapter}{\numberline {4}Analiza struktury zastosowanego oprogramowania}{8}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Połączenie z czujnikiem temperatury MLX90614}{8}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Połączenie z wyświetlaczem LCD HD44780}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Synchroniczna współpraca LCD i czujnika temperatury z wykorzystaniem mikrokontrolera Arduino}{8}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Uruchomienie projektu i skalibrowanie urządzenia}{9}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Proces uruchomienia}{9}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Kalibracja urządzenia}{9}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Wykonanie testów i dokonanie odpowiednich pomiarów}{10}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Opis metodyki testowania}{10}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Przygotowanie do testów}{10}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Przebieg testów}{10}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Dokonanie pomiarów}{10}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Analiza wyników}{10}{section.6.5}%
+\contentsline {chapter}{\numberline {7}Instrukcja użytkowania}{11}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Krótki opis pirometru i jego przeznaczenia}{11}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Ostrzeżenia dotyczące pomiarów wysokich temperatur/kontaktu z gorącymi obiektami}{11}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Podłączenie pirometru do źródła zasilania}{11}{section.7.3}%
+\contentsline {section}{\numberline {7.4}Opcjonalna zmiana parametrów (emisyjność, odległość dokonywania pomiaru)}{11}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Czyszczenie powierzchni czujnika}{11}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Informacje o przechowywaniu}{11}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Typowe problemy (np. brak odczytu, błędne wyniki) i ich możliwe rozwiązania}{11}{section.7.7}%
+\contentsline {chapter}{\numberline {8}Podsumowanie i Wnioski}{12}{chapter.8}%
+\contentsline {chapter}{Bibliografia}{13}{section*.2}%
