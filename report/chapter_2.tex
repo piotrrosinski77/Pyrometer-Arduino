@@ -27,7 +27,7 @@
 
     \begin{itemize}
 
-        \item bezdotykowego czujnika temperatury MLX90614
+        \item bezdotykowego czujnika temperatury MLX90614, który umożliwia pomiar temperatury obiektu w zakresie -70° do 380°C. Pomiar jest podawany z dokładnością do 0,5°C w zakresie 0-50°C, lub 4°C dla skrajnych wartości zakresu. Natomiast dla temperatury czujnika zakres wynosi od -40°C do 85°C.
         \item wyświetlacza LCD HD44780 z dołączonym konwerterem I2C
         \item układu sterującego komponentami i przetwarzającymi dane pomiarowe uzyskiwane z czujnika tj. mikrokontrolera Arduino Uno
         \item 4-przyciskowej klawiatury 
@@ -36,6 +36,8 @@
 
     \section{Opis założeń środowiskowych}
     
-    
+Urządzenie powinno działać w szerokim zakresie temperatur, od -40°C do +85°C, aby zapewnić niezawodność w różnych warunkach otoczenia. Urządzenie zostało zaprojektowane tak, aby mogło funkcjonować w umiarkowanej wilgotności, np. do 85\% przy temperaturze 25°C, aby zminimalizować ryzyko kondensacji i uszkodzeń komponentów. Urządzenie zasilane jest napięciem 5V DC bądź poprzez port USB 2.0. Urządzenie nie zostało przetestowane pod kątem pracy w trudniejszych warunkach środowiskowych. Użyte materiały są odporne na korozję oraz działanie substancji chemicznych, co jest istotne w przypadku zastosowań przemysłowych lub laboratoryjnych. Przed wdrożeniem urządzenia do użytku przeprowadzono testy środowiskowe, upewniając się, że spełnia wszystkie założenia dotyczące warunków pracy.
+Poczynione założenia środowiskowe są kluczowe dla zapewnienia niezawodności i długowieczności urządzenia, a także dla jego prawidłowego działania w różnych warunkach otoczenia.
+
 
     \section{Opis założeń ekonomicznych}
