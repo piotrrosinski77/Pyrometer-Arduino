@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.12.25)  18 DEC 2024 13:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.12.25)  18 DEC 2024 14:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -598,9 +598,9 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 11
 File: t1cmtt.fd 2022/07/10 v2.5l Standard LaTeX font definitions
 )) (./chapter_2.tex [4]
 Rozdzia\l  2.
-) (./chapter_3.tex [5
+[5
 
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [6]
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]) (./chapter_3.tex [6]
 Rozdzia\l  3.
 ) (./chapter_4.tex [7
 
@@ -665,7 +665,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  80i,5n,80p,1709b,1277s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on main.pdf (14 pages, 194824 bytes).
+Output written on main.pdf (14 pages, 195380 bytes).
 PDF statistics:
  322 PDF objects out of 1000 (max. 8388607)
  287 compressed objects within 3 object streams

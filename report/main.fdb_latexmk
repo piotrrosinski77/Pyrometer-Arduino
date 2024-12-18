@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1734525847 "/Users/administrator/Downloads/Pyrometer-Arduino/report/main.tex" "main.pdf" "main" 1734525850 0
+["pdflatex"] 1734526894 "/Users/administrator/Downloads/Pyrometer-Arduino/report/main.tex" "main.pdf" "main" 1734526897 0
   "/Users/administrator/Downloads/Pyrometer-Arduino/report/main.tex" 1734524730 651 e546e07a35633d6698c66fddceaf397e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -117,7 +117,7 @@
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "bib.tex" 1734524736 440 65b45de28897e2247b779dca3a0cb161 ""
   "chapter_1.tex" 1734444349 3346 a7fa4464092490152145f0da8aa570c8 ""
-  "chapter_2.tex" 1734525844 978 5bb720cd6624849f2462574fb6bbf7df ""
+  "chapter_2.tex" 1734526893 1627 18ed6847acd12ebd787cfd6b03711d25 ""
   "chapter_3.tex" 1734444349 246 c6ba98bc80da99a459c72ef618bc5c84 ""
   "chapter_4.tex" 1734444349 282 aaf2cc73ea8f382e4d1c522d8965e359 ""
   "chapter_5.tex" 1734444349 122 488c12c1ef5099f596909ddf6c008589 ""
@@ -126,10 +126,10 @@
   "chapter_8.tex" 1734444349 32 14f793fa49ada5a2439a7d10d969b3fb ""
   "images/logo PWr kolor poziom.png" 1734444349 29096 b6251a348c1223098e85b1f7a5efdc3d ""
   "libraries.tex" 1734444349 2002 4aca8648f6316a46c643bee4045b59b1 ""
-  "main.aux" 1734525850 6299 99ab045c154b03c25af745878883d79e "pdflatex"
-  "main.out" 1734525850 8523 945c954f07bc31086329b570f353e2ba "pdflatex"
+  "main.aux" 1734526897 6299 793691001cce633c7a524fb21f1235c0 "pdflatex"
+  "main.out" 1734526897 8523 945c954f07bc31086329b570f353e2ba "pdflatex"
   "main.tex" 1734524730 651 e546e07a35633d6698c66fddceaf397e ""
-  "main.toc" 1734525850 3493 31bd49e89612de09e4a75122dcc403a2 "pdflatex"
+  "main.toc" 1734526897 3493 26620af0e057f8a445eecd2d7fb90872 "pdflatex"
   "titlepage.tex" 1734444349 930 bb8299e1155ce8cd9061e3143c57599e ""
   (generated)
   "main.aux"
