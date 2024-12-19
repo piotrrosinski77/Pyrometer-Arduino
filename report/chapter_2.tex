@@ -13,21 +13,21 @@
         \item zwiększać wartość emisyjności
         \item zmniejszać wartość emisyjności
         \item przywrocić początkową wartość emisyjności wynoszącą 1
-        \item zmieniać jednostkę w której wyświetlany jest wynik: stopnie Celsjusza, stopnie Fahrenheita, stopnie Kelvina.
+        \item zmieniać jednostkę w której wyświetlany jest wynik wciskając raz za razem przycisk: stopnie Celsjusza, stopnie Fahrenheita, stopnie Kelvina.
 
     \end{itemize}
 
     \section{Opis założeń konstrukcyjnych}
     
-    Urządzenie wykonane zostało na płycie ewaluacyjnej, która umożliwia korzystanie z urządzenia, minimalizując ryzyko jakiegokolwiek uszkodzenia urządzenia. Układ działa stabilnie i daje opcję przetransportowania przyrządu.
+    Urządzenie wykonane zostało na płycie ewaluacyjnej, która umożliwia korzystanie z urządzenia, minimalizując ryzyko jakiegokolwiek uszkodzenia urządzenia. Układ opierając się konstrukcyjnie na płycie działa stabilnie i daje opcję bezpiecznego przetransportowania przyrządu.
 
     \vspace{12pt}
 
-    Wykonany przyrząd pomiarowy składa się z:
+    Wykonany w ramach projektu przyrząd pomiarowy składa się z:
 
     \begin{itemize}
 
-        \item bezdotykowego czujnika temperatury MLX90614, który umożliwia pomiar temperatury obiektu w zakresie -70° do 380°C. Pomiar jest podawany z dokładnością do 0,5°C w zakresie 0-50°C, lub 4°C dla skrajnych wartości zakresu. Natomiast dla temperatury czujnika zakres wynosi od -40°C do 85°C.
+        \item bezdotykowego czujnika temperatury MLX90614, który umożliwia pomiar temperatury obiektu w zakresie -70° do 380°C. Pomiar jest podawany z dokładnością do 0,5°C w zakresie 0-50°C, lub 4°C dla skrajnych wartości zakresu. Natomiast dla temperatury czujnika zakres wynosi od -40°C do 85°C \cite{3}.
         \item wyświetlacza LCD HD44780 z dołączonym konwerterem I2C
         \item układu sterującego komponentami i przetwarzającymi dane pomiarowe uzyskiwane z czujnika tj. mikrokontrolera Arduino Uno
         \item 4-przyciskowej klawiatury 
@@ -36,8 +36,7 @@
 
     \section{Opis założeń środowiskowych}
     
-Urządzenie powinno działać w szerokim zakresie temperatur, od -20°C do +70°C, aby zapewnić niezawodność w różnych warunkach otoczenia. Urządzenie zostało zaprojektowane tak, aby mogło funkcjonować w umiarkowanej wilgotności, np. do 85\% przy temperaturze 25°C, aby zminimalizować ryzyko kondensacji i uszkodzeń komponentów. Urządzenie zasilane jest napięciem 5V DC bądź poprzez port USB 2.0. Urządzenie nie zostało przetestowane pod kątem pracy w trudniejszych warunkach środowiskowych. Użyte materiały są odporne na korozję oraz działanie substancji chemicznych, co jest istotne w przypadku zastosowań przemysłowych lub laboratoryjnych. Przed wdrożeniem urządzenia do użytku przeprowadzono testy środowiskowe, upewniając się, że spełnia wszystkie założenia dotyczące warunków pracy.
-Poczynione założenia środowiskowe są kluczowe dla zapewnienia niezawodności i długowieczności urządzenia, a także dla jego prawidłowego działania w różnych warunkach otoczenia.
+Urządzenie działa w odpowiednio szerokim zakresie temperatur, od -20°C do +70°C, aby umożliwić wykorzystanie w różnych warunkach otoczenia. Zostało ono zaprojektowane tak, aby mogło funkcjonować w umiarkowanej wilgotności tj. do bezpiecznej wartości 60\% przy temperaturze 25°C, tak by zminimalizować ryzyko kondensacji i uszkodzeń komponentów. Urządzenie zasilane jest napięciem 5V (możliwe także zasilanie poprzez port USB 2.0). Urządzenie nie zostało przetestowane pod kątem pracy w trudniejszych warunkach środowiskowych. Użyte materiały są odporne na korozję oraz działanie łagodnych substancji chemicznych, co może mieć znaczenie w przypadku zastosowań przemysłowych bądź laboratoryjnych. Przed wdrożeniem urządzenia do użytku przeprowadzono testy środowiskowe, upewniając się, że spełnia wszystkie założenia dotyczące warunków pracy. Omawiane założenia środowiskowe są kluczowe dla zapewnienia niezawodności i trwałości urządzenia, a także dla jego prawidłowego działania w różnych warunkach otoczenia.
 
 \section{Opis założeń ekonomicznych}
 Projekt został opracowany z uwzględnieniem minimalizacji kosztów komponentów z jednoczesnym zachowaniem optymalnej do zastosowań jakości.
@@ -45,10 +44,10 @@ Projekt został opracowany z uwzględnieniem minimalizacji kosztów komponentów
 Koszty projektu obejmują: 
 
 \begin{itemize}
-    \item Czujnik MLX90614 – koszt jednostkowy w przedziale 60–120 zł w zależności od dostawcy.
-    \item Wyświetlacz LCD HD44780 z konwerterem I2C – koszt jednostkowy w przedziale 20–40 zł.
+    \item Czujnik MLX90614 – koszt jednostkowy w przedziale 50–80 zł w zależności od wybranego dostawcy.
+    \item Wyświetlacz LCD HD44780 z konwerterem I2C – koszt jednostkowy w przedziale 20–30 zł.
     \item Mikrokontroler Arduino Uno – koszt jednostkowy około 100 zł.
-    \item Klawiatura 4-przyciskowa – koszt jednostkowy w przedziale 5–10 zł. 
+    \item Klawiatura 4-przyciskowa – koszt jednostkowy w przedziale 3–10 zł. 
 \end{itemize}
 
-Całkowity koszt komponentów to około 185–270 zł, co czyni projekt relatywnie niedrogim w realizacji.
+Całkowity koszt komponentów to około 170–220 zł, co czyni projekt relatywnie niedrogim i dość przystępnym cenowo w realizacji.

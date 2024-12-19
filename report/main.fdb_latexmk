@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1734528923 "/Users/administrator/Downloads/Pyrometer-Arduino/report/main.tex" "main.pdf" "main" 1734528926 0
+["pdflatex"] 1734646566 "/Users/administrator/Downloads/Pyrometer-Arduino/report/main.tex" "main.pdf" "main" 1734646570 0
   "/Users/administrator/Downloads/Pyrometer-Arduino/report/main.tex" 1734524730 651 e546e07a35633d6698c66fddceaf397e ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -115,9 +115,9 @@
   "/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1703537539 4623355 b8cad38412faebe1ce5b780a45db67bd ""
   "/usr/local/texlive/2023/texmf-var/web2c/pdftex/pdflatex.fmt" 1703537484 7883456 76587846b4f774a28c3aacccca47c9e5 ""
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
-  "bib.tex" 1734524736 440 65b45de28897e2247b779dca3a0cb161 ""
+  "bib.tex" 1734644934 625 3c8eb762ad7617ffb71c490ff5af78d0 ""
   "chapter_1.tex" 1734444349 3346 a7fa4464092490152145f0da8aa570c8 ""
-  "chapter_2.tex" 1734528922 3566 01f1714380a82eedeb0f30add3bb32cd ""
+  "chapter_2.tex" 1734646563 3771 2c8a9933e97b41787aa4f22dc39cb2b2 ""
   "chapter_3.tex" 1734444349 246 c6ba98bc80da99a459c72ef618bc5c84 ""
   "chapter_4.tex" 1734444349 282 aaf2cc73ea8f382e4d1c522d8965e359 ""
   "chapter_5.tex" 1734444349 122 488c12c1ef5099f596909ddf6c008589 ""
@@ -126,10 +126,10 @@
   "chapter_8.tex" 1734444349 32 14f793fa49ada5a2439a7d10d969b3fb ""
   "images/logo PWr kolor poziom.png" 1734444349 29096 b6251a348c1223098e85b1f7a5efdc3d ""
   "libraries.tex" 1734444349 2002 4aca8648f6316a46c643bee4045b59b1 ""
-  "main.aux" 1734528926 6302 ee991a3966f047ea84acf7b83fdfa19f "pdflatex"
-  "main.out" 1734528926 8523 945c954f07bc31086329b570f353e2ba "pdflatex"
+  "main.aux" 1734646569 6330 19b8f4ff132ba10cba510399232c327d "pdflatex"
+  "main.out" 1734646569 8523 945c954f07bc31086329b570f353e2ba "pdflatex"
   "main.tex" 1734524730 651 e546e07a35633d6698c66fddceaf397e ""
-  "main.toc" 1734528926 3496 b803e0ea6c5eccee550fd7fe53d94827 "pdflatex"
+  "main.toc" 1734646569 3496 b803e0ea6c5eccee550fd7fe53d94827 "pdflatex"
   "titlepage.tex" 1734444349 930 bb8299e1155ce8cd9061e3143c57599e ""
   (generated)
   "main.aux"
