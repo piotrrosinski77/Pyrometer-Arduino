@@ -28,29 +28,53 @@
     \begin{itemize}
 
         \item bezdotykowego czujnika temperatury MLX90614, który umożliwia pomiar temperatury obiektu w zakresie -70° do 380°C. Pomiar jest podawany z dokładnością do 0,5°C w zakresie 0-50°C, lub 4°C dla skrajnych wartości zakresu. Natomiast dla temperatury czujnika zakres wynosi od -40°C do 85°C \cite{3}.
+        \vspace{12pt}
         \item wyświetlacza LCD HD44780 z dołączonym konwerterem I2C
+        \vspace{12pt}
         \item układu sterującego komponentami i przetwarzającymi dane pomiarowe uzyskiwane z czujnika tj. mikrokontrolera Arduino Uno
+        \vspace{12pt}
         \item 4-przyciskowej klawiatury 
 
     \end{itemize}
 
     \section{Opis założeń środowiskowych}
     
-Urządzenie działa w odpowiednio szerokim zakresie temperatur, od -20°C do +70°C, aby umożliwić wykorzystanie w różnych warunkach otoczenia. Zostało ono zaprojektowane tak, aby mogło funkcjonować w umiarkowanej wilgotności tj. do bezpiecznej wartości 60\% przy temperaturze 25°C, tak by zminimalizować ryzyko kondensacji i uszkodzeń komponentów. Urządzenie zasilane jest napięciem 5V (możliwe także zasilanie poprzez port USB 2.0). Urządzenie nie zostało przetestowane pod kątem pracy w trudniejszych warunkach środowiskowych. Użyte materiały są odporne na korozję oraz działanie łagodnych substancji chemicznych, co może mieć znaczenie w przypadku zastosowań przemysłowych bądź laboratoryjnych. Przed wdrożeniem urządzenia do użytku przeprowadzono testy środowiskowe, upewniając się, że spełnia wszystkie założenia dotyczące warunków pracy. Omawiane założenia środowiskowe są kluczowe dla zapewnienia niezawodności i trwałości urządzenia, a także dla jego prawidłowego działania w różnych warunkach otoczenia.
+Urządzenie działa w odpowiednio szerokim zakresie temperatur, od -20°C do +70°C, aby umożliwić wykorzystanie w różnych warunkach otoczenia. Zostało ono zaprojektowane tak, aby mogło funkcjonować w umiarkowanej wilgotności tj. do bezpiecznej wartości 60\% przy temperaturze 25°C, tak by zminimalizować ryzyko kondensacji i uszkodzeń komponentów. 
+
+\vspace{12pt}
+
+Urządzenie zasilane jest napięciem 5V (możliwe także zasilanie poprzez port USB 2.0). Urządzenie nie zostało przetestowane pod kątem pracy w trudniejszych warunkach środowiskowych. Użyte materiały są odporne na korozję oraz działanie łagodnych substancji chemicznych, co może mieć znaczenie w przypadku zastosowań przemysłowych bądź laboratoryjnych. 
+
+\vspace{12pt}
+
+Przed wdrożeniem urządzenia do użytku przeprowadzono testy środowiskowe, upewniając się, że spełnia wszystkie założenia dotyczące warunków pracy. Omawiane założenia środowiskowe są kluczowe dla zapewnienia niezawodności i trwałości urządzenia, a także dla jego prawidłowego działania w różnych warunkach otoczenia.
 
 \section{Opis założeń ekonomicznych}
 Projekt został opracowany z uwzględnieniem minimalizacji kosztów komponentów z jednoczesnym zachowaniem optymalnej do zastosowań jakości.
+
+\vspace{12pt}
 
 Koszty projektu obejmują: 
 
 \begin{itemize}
     \item Czujnik MLX90614 – koszt jednostkowy w przedziale 50–80 zł w zależności od wybranego dostawcy.
+    \vspace{12pt}
     \item Wyświetlacz LCD HD44780 z konwerterem I2C – koszt jednostkowy w przedziale 20–30 zł.
+    \vspace{12pt}
     \item Mikrokontroler Arduino Uno – koszt jednostkowy około 100 zł.
-    \item Klawiatura 4-przyciskowa – koszt jednostkowy w przedziale 3–10 zł. 
+    \vspace{12pt}
+    \item Klawiatura 4-przyciskowa – koszt jednostkowy w przedziale 3–10 zł.
+    \vspace{12pt} 
+    \item Laminat miedziowy – koszt jednostkowy w przedziale 20–30 zł.
+    \vspace{12pt}
+    \item Śruby i elementy łączące - koszt około 5-10 zł.
+    \vspace{12pt}
+    \item Poliwęglan stanowiący obudowę – koszt jednostkowy około 30-40 zł
 \end{itemize}
 
-Całkowity koszt komponentów to około 170–220 zł, co czyni projekt relatywnie niedrogim i dość przystępnym cenowo w realizacji. Warto jednak zauważyć, że koszty projektu mogą ulec zmianie w zależności od wybranych dostawców i ilości zakupionych komponentów. 
+\vspace{24pt}
+
+Całkowity koszt komponentów to około 220–28 zł, co czyni projekt relatywnie niedrogim i dość przystępnym cenowo w realizacji. Warto jednak zauważyć, że koszty projektu mogą ulec zmianie w zależności od wybranych dostawców i ilości zakupionych komponentów. 
 
 \vspace{12pt}
 
