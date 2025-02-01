@@ -1,48 +1,167 @@
 \chapter{Opis części sprzętowej}
     %\section{Mikrokontroler Arduino Uno}
 
+    Schemat blokowy pokazany na rysunku \ref{fig:schemat} przedstawia zbudowane urządzenie składające się z wyświetlacza HD44780 z konwerterem I2C, układu sterującego Arduino Uno, klawiatury 4-przyciskowej oraz czujnika temperatury MLX90614. Arduino Uno pełni rolę centralnego układu sterującego, przetwarzającego dane i zarządzającego pozostałymi komponentami. Klawiatura 4-przyciskowa umożliwia użytkownikowi interakcję z systemem. Czujnik MLX90614 mierzy temperaturę obiektów w podczerwieni bez konieczności fizycznego kontaktu, przekazując dane do Arduino.
+    
+    \vspace{12pt}
+
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.35\textwidth]{images/uno.jpg}
-        %\caption{Podpis pod obrazkiem.}
-        \label{fig:example}
+        \includegraphics[width=1\textwidth]{images/schemat.png}
+        \caption{Schemat blokowy skonstruowanego urządzenia} 
+        \label{fig:schemat}
     \end{figure}
 
-    Arduino Uno to popularny mikrokontroler wykorzystywany w projektach elektronicznych i robotyce. Jest to wszechstronna platforma programistyczna oparta na mikrokontrolerze ATmega328P. Mikrokontroler ten posiada 32KB pamięci Flash, 2KB pamięci RAM, 14 cyfrowych pinów wejścia/wyjścia, 6 pinów wejścia analogowego, zegar taktowany z częstotliwością 16MHz, interfejs USB, złącze zasilania 5V oraz złącze programowania ISP. Arduino Uno jest kompatybilny z wieloma dodatkowymi modułami, co pozwala na rozbudowę funkcjonalności. Mikrokontroler ten jest wykorzystywany w projekcie jako główny kontroler systemu.
+\section{Arduino Uno}
+
+    Arduino Uno pokazany na rysunku \ref{fig:uno}, to popularny mikrokontroler wykorzystywany w projektach elektronicznych i robotyce. Jest to wszechstronna platforma programistyczna oparta na mikrokontrolerze ATmega328P. Mikrokontroler ten posiada 32KB pamięci Flash, 2KB pamięci RAM, 14 cyfrowych pinów wejścia/wyjścia, 6 pinów wejścia analogowego, zegar taktowany z częstotliwością 16MHz, interfejs USB, złącze zasilania 5V oraz złącze programowania ISP. Arduino Uno jest kompatybilny z wieloma dodatkowymi modułami, co pozwala na rozbudowę funkcjonalności. Mikrokontroler ten jest wykorzystywany w projekcie jako główny kontroler systemu \cite{5}.
 
     \vspace{12pt}
 
-    Programowanie Arduino Uno odbywa się w dedykowanym środowisku Arduino IDE, które wykorzystuje język bazujący na C++. Dzięki rozbudowanej bibliotece funkcji i dużej społeczności użytkowników, realizacja nawet zaawansowanych projektów jest stosunkowo prosta \cite{4}
-    
-    %\section{Czujnik temperatury MLX90614}
+    Programowanie Arduino Uno odbywa się w dedykowanym środowisku Arduino IDE, które wykorzystuje język bazujący na C++. Dzięki rozbudowanej bibliotece funkcji i dużej społeczności użytkowników, realizacja nawet zaawansowanych projektów jest stosunkowo prosta.
+
+    \vspace{12pt}
 
     \begin{figure}[h!]
         \centering
-        \includegraphics[width=0.35\textwidth]{images/mlx.jpg}
-        %\caption{Podpis pod obrazkiem.}
-        \label{fig:example}
+        \includegraphics[width=0.45\textwidth]{images/uno.jpg}
+        \caption{Mikrokontroler Arduino Uno \cite{5}}
+        \label{fig:uno}
     \end{figure}
 
-    Czujnik MLX90614 to zaawansowany, bezdotykowy termometr na podczerwień, który umożliwia pomiar temperatury obiektów w szerokim zakresie. Działa na napięciu zasilania od 3V do 3.6V i komunikuje się za pomocą interfejsu I2C, co czyni go łatwym w integracji z różnymi systemami, takimi jak Arduino czy inne mikrokontrolery. Dzięki swojej konstrukcji, MLX90614 znajduje zastosowanie w wielu dziedzinach, w tym w medycynie do pomiaru temperatury ciała, w systemach klimatyzacji oraz w automatyzacji przemysłowej \cite{5}.
+    \vspace{12pt}
 
-    %\section{4-przyciskowa klawiatura}
+\textbf{Zadanie:} Arduino Uno pełni funkcję jednostki centralnej systemu, integrując wszystkie kluczowe komponenty urządzenia. Jest odpowiedzialne za przetwarzanie danych pomiarowych z czujnika temperatury MLX90614, obsługę logiki systemu oraz sterowanie wyświetlaczem LCD. Dzięki temu użytkownik może w czasie rzeczywistym obserwować wyniki pomiarów i dokonywać ich konfiguracji za pomocą klawiatury. Arduino Uno zapewnia stabilne i niezawodne działanie, gwarantując synchronizację między komponentami. Ponadto, mikrokontroler umożliwia szybką reakcję na polecenia użytkownika, takie jak zmiana wartości emisyjności czy zmiana jednostek temperatury.
+
+%\newpage
+
+\vspace{12pt}
+
+% \textbf{Specyfikacja:} Arduino Uno jest wyposażone w mikrokontroler ATmega328P, który posiada:
+% \begin{itemize}
+%     \item 14 cyfrowych pinów I/O (z możliwością generowania sygnałów PWM na 6 pinach),
+%     \item 6 wejść analogowych do precyzyjnego odczytu sygnałów,
+%     \item zegar o częstotliwości 16 MHz, zapewniający wystarczającą moc obliczeniową dla obsługi systemu,
+%     \item 32 kB pamięci flash na kod programu, 2 kB SRAM na zmienne, oraz 1 kB EEPROM do przechowywania danych,
+%     \item interfejsy komunikacyjne, takie jak UART, SPI, oraz I2C, co umożliwia łatwą integrację z czujnikami i innymi modułami,
+%     \item zasilanie poprzez port USB (5V) lub zewnętrzne źródło zasilania (7-12V), co czyni go wszechstronnym w zastosowaniach przenośnych i stacjonarnych.
+% \end{itemize}
+
+\newpage
+
+Dzięki swojej wszechstronności i otwartości Arduino Uno idealnie nadaje się do prototypowania urządzeń pomiarowych, takich jak projektowane w tym systemie rozwiązanie.
+
+
+\vspace{12pt}
+
+\section{Czujnik MLX90614}
+
+    Czujnik MLX90614 pokazany na rysunku \ref{fig:mlx}, to zaawansowany, bezdotykowy termometr na podczerwień, który umożliwia pomiar temperatury obiektów w szerokim zakresie. Działa na napięciu zasilania od 3V do 3.6V i komunikuje się za pomocą interfejsu I2C, co czyni go łatwym w integracji z różnymi systemami, takimi jak Arduino czy inne mikrokontrolery. Dzięki swojej konstrukcji, MLX90614 znajduje zastosowanie w wielu dziedzinach, w tym w medycynie do pomiaru temperatury ciała, w systemach klimatyzacji oraz w automatyzacji przemysłowej.
 
     \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.38\textwidth]{images/mlx.jpg}
+        \caption{Czujnik MLX90614 \cite{6}}
+        \label{fig:mlx}
+    \end{figure}
+
+\textbf{Zadanie:} Czujnik MLX90614 stanowi kluczowy element systemu, umożliwiający precyzyjny, bezkontaktowy pomiar temperatury. Wykorzystuje technologię detekcji promieniowania podczerwonego, pozwalając na dokładny odczyt temperatury powierzchni bez konieczności fizycznego kontaktu z badanym obiektem.
+
+\vspace{12pt}
+
+%\textbf{Specyfikacja:} Zakres pomiaru od -70°C do 380°C, dokładność ±0.5°C, interfejs komunikacji I2C.
+
+\vspace{12pt}
+
+\section{Wyświetlacz LCD 16x2}
+
+Wyświetlacz LCD z konwerterem I2C pokazany na rysnuku \ref{fig:lcd}, oparty jest na sterowniku HD44780 to popularne rozwiązanie do wyświetlania tekstu w projektach elektronicznych. Dzięki wbudowanemu konwerterowi I2C znacznie uproszczona jest komunikacja z mikrokontrolerem, ponieważ wymaga jedynie dwóch linii sygnałowych (SDA i SCL), zamiast standardowych 6-8 w przypadku klasycznego podłączenia. Wyświetlacz obsługuje różne konfiguracje, najczęściej spotykane to 16x2 (16 znaków na 2 liniach) lub 20x4 (20 znaków na 4 liniach). Sterownik HD44780 umożliwia łatwe sterowanie wyświetlanymi znakami oraz tworzenie niestandardowych symboli. Dzięki czytelnemu interfejsowi i szerokiemu wsparciu w bibliotekach do Arduino, Raspberry Pi i innych platform, wyświetlacz ten jest chętnie używany w projektach takich jak panele kontrolne, wskaźniki statusu czy urządzenia IoT.
+
+\begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.45\textwidth]{images/lcd.png}
+        \caption{Wyświetlacz LCD44780 z konwerterem I2C}
+        \label{fig:lcd}
+    \end{figure}
+
+\textbf{Zadanie:} Wyświetlacz LCD 16x2 pełni funkcję interfejsu wizualnego, umożliwiając prezentację wyników pomiarów temperatury oraz dodatkowych informacji, takich jak ustawiona wartość emisyjności i wybrana jednostka temperatury (Celsjusz, Fahrenheit lub Kelvin).
+
+\vspace{12pt}
+
+%\textbf{Specyfikacja:} 16 kolumn i 2 wiersze znaków, kompatybilny z interfejsem HD44780, podświetlenie LED, kontrast sterowany potencjometrem na płycie.
+
+\vspace{12pt}
+
+\section{4-przyciskowa klawiatura}
+
+Pokazana na zdjęciu \ref{fig:klaw}  klawiatura to membranowa klawiatura numeryczna, składająca się z czterech przycisków oznaczonych cyframi od 1 do 4. Charakteryzuje się prostą budową, elastyczną taśmą zakończoną złączem z pinami, co umożliwia łatwe podłączenie do mikrokontrolera lub innych urządzeń elektronicznych. Tego typu klawiatury są często wykorzystywane w prostych projektach elektronicznych, takich jak panele sterujące, systemy wprowadzania kodów czy interfejsy użytkownika w urządzeniach DIY. Dzięki niskiej cenie i kompaktowym rozmiarom, są popularnym wyborem wśród hobbystów i studentów elektroniki.
+
+\begin{figure}[h!]
         \centering
         \includegraphics[width=0.35\textwidth]{images/keyboard4pin.jpg}
-        %\caption{Podpis pod obrazkiem.}
-        \label{fig:example}
+        \caption{4-przyciskowa klawiatura}
+        \label{fig:klaw}
     \end{figure}
 
-    Pokazana na zdjęciu klawiatura to membranowa klawiatura numeryczna, składająca się z czterech przycisków oznaczonych cyframi od 1 do 4. Charakteryzuje się prostą budową, elastyczną taśmą zakończoną złączem z pinami, co umożliwia łatwe podłączenie do mikrokontrolera lub innych urządzeń elektronicznych. Tego typu klawiatury są często wykorzystywane w prostych projektach elektronicznych, takich jak panele sterujące, systemy wprowadzania kodów czy interfejsy użytkownika w urządzeniach DIY. Dzięki niskiej cenie i kompaktowym rozmiarom, są popularnym wyborem wśród hobbystów i studentów elektroniki.
+Za pomocą dołączonej 4-przyciskowej klawiatury można:
+\begin{itemize}
+    \item zwiększać wartość emisyjności,
+    \item zmniejszać wartość emisyjności,
+    \item przywrócić początkową wartość emisyjności wynoszącą 1,
+    \item zmieniać jednostkę, w której wyświetlany jest wynik, wciskając kolejno przycisk (stopnie Celsjusza, Fahrenheita, Kelvina).
+\end{itemize}
 
-    %\section{Wyświetlacz LCD z konwerterem I2C HD44780}
+\textbf{Specyfikacja:} Prosty układ czterech przycisków, połączony z wejściami Arduino.
 
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.3\textwidth]{images/lcd.png}
-        %\caption{Podpis pod obrazkiem.}
-        \label{fig:example}
-    \end{figure}
+\vspace{12pt}
+
+% \section{Zasilanie przez USB}
+% \textbf{Rola:} System jest zasilany przez kabel USB podłączony do Arduino Uno, co upraszcza konstrukcję i eliminuje potrzebę stosowania zewnętrznych źródeł zasilania.
+
+% \textbf{Specyfikacja:} Standardowy kabel USB do zasilania Arduino Uno, zapewniający napięcie 5V.
+
+    % \begin{figure}[h!]
+    %     \centering
+    %     \includegraphics[width=0.32\textwidth]{images/uno.jpg}
+    %     %\caption{Podpis pod obrazkiem.}
+    %     \label{fig:example}
+    % \end{figure}
+
+    % Arduino Uno to popularny mikrokontroler wykorzystywany w projektach elektronicznych i robotyce. Jest to wszechstronna platforma programistyczna oparta na mikrokontrolerze ATmega328P. Mikrokontroler ten posiada 32KB pamięci Flash, 2KB pamięci RAM, 14 cyfrowych pinów wejścia/wyjścia, 6 pinów wejścia analogowego, zegar taktowany z częstotliwością 16MHz, interfejs USB, złącze zasilania 5V oraz złącze programowania ISP. Arduino Uno jest kompatybilny z wieloma dodatkowymi modułami, co pozwala na rozbudowę funkcjonalności. Mikrokontroler ten jest wykorzystywany w projekcie jako główny kontroler systemu.
+
+    % \vspace{12pt}
+
+    % Programowanie Arduino Uno odbywa się w dedykowanym środowisku Arduino IDE, które wykorzystuje język bazujący na C++. Dzięki rozbudowanej bibliotece funkcji i dużej społeczności użytkowników, realizacja nawet zaawansowanych projektów jest stosunkowo prosta \cite{4}
     
-    Wyświetlacz LCD z konwerterem I2C oparty na sterowniku HD44780 to popularne rozwiązanie do wyświetlania tekstu w projektach elektronicznych. Dzięki wbudowanemu konwerterowi I2C znacznie uproszczona jest komunikacja z mikrokontrolerem, ponieważ wymaga jedynie dwóch linii sygnałowych (SDA i SCL), zamiast standardowych 6-8 w przypadku klasycznego podłączenia. Wyświetlacz obsługuje różne konfiguracje, najczęściej spotykane to 16x2 (16 znaków na 2 liniach) lub 20x4 (20 znaków na 4 liniach). Sterownik HD44780 umożliwia łatwe sterowanie wyświetlanymi znakami oraz tworzenie niestandardowych symboli. Dzięki czytelnemu interfejsowi i szerokiemu wsparciu w bibliotekach do Arduino, Raspberry Pi i innych platform, wyświetlacz ten jest chętnie używany w projektach takich jak panele kontrolne, wskaźniki statusu czy urządzenia IoT.
+    % %\section{Czujnik temperatury MLX90614}
+
+    % \begin{figure}[h!]
+    %     \centering
+    %     \includegraphics[width=0.32\textwidth]{images/mlx.jpg}
+    %     %\caption{Podpis pod obrazkiem.}
+    %     \label{fig:example}
+    % \end{figure}
+
+    % Czujnik MLX90614 to zaawansowany, bezdotykowy termometr na podczerwień, który umożliwia pomiar temperatury obiektów w szerokim zakresie. Działa na napięciu zasilania od 3V do 3.6V i komunikuje się za pomocą interfejsu I2C, co czyni go łatwym w integracji z różnymi systemami, takimi jak Arduino czy inne mikrokontrolery. Dzięki swojej konstrukcji, MLX90614 znajduje zastosowanie w wielu dziedzinach, w tym w medycynie do pomiaru temperatury ciała, w systemach klimatyzacji oraz w automatyzacji przemysłowej \cite{5}.
+
+    % %\section{4-przyciskowa klawiatura}
+
+    % \begin{figure}[h!]
+    %     \centering
+    %     \includegraphics[width=0.32\textwidth]{images/keyboard4pin.jpg}
+    %     %\caption{Podpis pod obrazkiem.}
+    %     \label{fig:example}
+    % \end{figure}
+
+    % Pokazana na zdjęciu klawiatura to membranowa klawiatura numeryczna, składająca się z czterech przycisków oznaczonych cyframi od 1 do 4. Charakteryzuje się prostą budową, elastyczną taśmą zakończoną złączem z pinami, co umożliwia łatwe podłączenie do mikrokontrolera lub innych urządzeń elektronicznych. Tego typu klawiatury są często wykorzystywane w prostych projektach elektronicznych, takich jak panele sterujące, systemy wprowadzania kodów czy interfejsy użytkownika w urządzeniach DIY. Dzięki niskiej cenie i kompaktowym rozmiarom, są popularnym wyborem wśród hobbystów i studentów elektroniki.
+
+    % %\section{Wyświetlacz LCD z konwerterem I2C HD44780}
+
+    % \begin{figure}[h!]
+    %     \centering
+    %     \includegraphics[width=0.3\textwidth]{images/lcd.png}
+    %     %\caption{Podpis pod obrazkiem.}
+    %     \label{fig:example}
+    % \end{figure}
+    
+    % Wyświetlacz LCD z konwerterem I2C oparty na sterowniku HD44780 to popularne rozwiązanie do wyświetlania tekstu w projektach elektronicznych. Dzięki wbudowanemu konwerterowi I2C znacznie uproszczona jest komunikacja z mikrokontrolerem, ponieważ wymaga jedynie dwóch linii sygnałowych (SDA i SCL), zamiast standardowych 6-8 w przypadku klasycznego podłączenia. Wyświetlacz obsługuje różne konfiguracje, najczęściej spotykane to 16x2 (16 znaków na 2 liniach) lub 20x4 (20 znaków na 4 liniach). Sterownik HD44780 umożliwia łatwe sterowanie wyświetlanymi znakami oraz tworzenie niestandardowych symboli. Dzięki czytelnemu interfejsowi i szerokiemu wsparciu w bibliotekach do Arduino, Raspberry Pi i innych platform, wyświetlacz ten jest chętnie używany w projektach takich jak panele kontrolne, wskaźniki statusu czy urządzenia IoT.
