@@ -1,7 +1,7 @@
 \chapter{Wstęp}
-    \section{Wprowadzenie}
+    \chapter{Wprowadzenie}
     Metrologia optyczna stanowi obecnie jeden z najważniejszych narzędzi pomiarowych w nauce i przemyśle stale zwiększając swoje znaczenie. Bezdotykowy pomiar temperatury rewolucjonizuje precyzję kontroli procesów technologicznych, badań naukowych i diagnostyki medycznej. Szczególną zaletą tych rozwiązań jest możliwość wykonywania pomiarów w warunkach, które dotychczas stanowiły wyzwanie – w przypadku obiektów szybko się poruszających, materiałów o ekstremalnych temperaturach lub gdy klasyczny kontakt pomiarowy mógłby zakłócić naturalne właściwości badanego obiektu i wprowadzić zaburzenie do pomiaru.
-    \section{Cel projektu}
+    %\section{Cel projektu}
     Celem niniejszego projektu jest opracowanie i implementacja pirometru – zaawansowanego urządzenia do bezdotykowego pomiaru temperatury wykorzystującego technologię podczerwieni. Projekt został zrealizowany w oparciu o czujnik MLX90614, który zapewnia odpowiednią precyzję i stabilność pomiarów w założonym zakresie temperatur. Sercem systemu jest popularna płytka mikrokontrolerowa, Arduino UNO, która stanowi centrum sterujące całego urządzenia. Płytka Arduino UNO oparta jest na 8-bitowym mikrokontrolerze ATmega328P, który zapewnia różnorodne funkcje, takie jak 14 cyfrowych pinów wejścia/wyjścia czy 6 analogowych wejść. Dzięki swojej prostocie i wszechstronności, Arduino UNO jest często pierwszym wyborem dla wielu, nieco mniej wymagających obliczeniowo projektów \cite{1}. Kod źródłowy projektu został napisany w języku C/C++, z wykorzystaniem open-sourcowych bibliotek ułatwiających programowanie kluczowych komponentów, w tym wyświetlacza LCD opartego na standardzie HD44780. HD44780 to standardowy kontroler wyświetlaczy LCD. Został opracowany przez firmę Hitachi w latach 80. XX wieku i jest powszechnie stosowany w alfanumerycznych wyświetlaczach dot-matrix \cite{2}. W projektach wykorzystujących tę technologię często stosowana jest biblioteka LiquidCrystalI2C, która upraszcza interakcję z wyświetlaczami LCD podłączonymi do mikrokontrolerów takich jak Arduino poprzez interfejs I2C. Dzięki tej bibliotece możliwe jest łatwe sterowanie wyświetlaczem oraz wyświetlanie tekstu i danych w sposób efektywny i intuicyjny. 
 
     \vspace{12pt}
@@ -13,5 +13,5 @@
         LiquidCrystal_I2C lcd(0x27, 16, 2); // Adres I2C, liczba kolumn, liczba wierszy
         \end{lstlisting}
     
-    \section{Zakres projektu}
+    %\section{Zakres projektu}
     Zakres niniejszego projektu obejmuje kompleksowe opracowanie bezdotykowego systemu pomiarowego temperatury, który łączy optymalne rozwiązania w każdym omawianym później aspekcie projektowym. Projekt podzielony jest na dwie główne części: część programową i konstrukcyjną. Pod uwagę wzięte zostaną także różne istotne czynniki, które wpływają na sposób wykorzystania zbudowanego urządzenia. Istotne dla projektu jest nie tylko samo działanie pirometru, lecz także wpływ środowiska w którym jest użytkowane i kwestia sensownej minimalizacji kosztów utworzenia w pełni funkcjonalnego systemu pomiarowego.

@@ -13,8 +13,16 @@
 \usepackage{xcolor}
 \usepackage{tabularx}
 \usepackage{subcaption}
+\usepackage{titlesec}
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+
+% Konfiguracja wyglądu rozdziałów
+\titleformat{\chapter}[hang]
+  {\normalfont\huge\bfseries}
+  {\thechapter. }
+  {0pt}
+  {\huge}
 
 \lstset{
     language=Python,
