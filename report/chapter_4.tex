@@ -1,24 +1,222 @@
 \chapter{Opis części programowej}
+
+Oprogramowanie pirometru zostało napisane w języku C++ z wykorzystaniem środowiska Arduino IDE. Program odpowiada za odczyt temperatury z czujnika MLX90614, wyświetlanie wyników na ekranie LCD 16x2 oraz obsługę 4-przyciskowej klawiatury do regulacji emisyjności/zmiany jednostki. Kod został zoptymalizowany pod kątem intuicyjnej obsługi i wysokiej dokładności pomiarów. Podstawowy algorytm działania przedstawiono na schemacie blokowym \ref{fig:blok}.
+
+\vspace{24pt}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/program.png}
+    \caption{Schemat blokowy skonstruowanego urządzenia} 
+    \label{fig:blok}
+\end{figure}
+
+%\vspace{12pt}
+
+\section{Biblioteki i wstępna konfiguracja}
+
+Na początku kodu są załączone biblioteki:
+
+\texttt{\#include <Arduino.h>} – standardowa biblioteka Arduino.
+
+\texttt{\#include <Adafruit\_MLX90614.h>} – obsługa czujnika MLX90614.
+
+\texttt{\#include <LiquidCrystal\_I2C.h>} – sterowanie LCD przez I2C.
+
+\texttt{\#include <math.h>} – funkcje matematyczne (\texttt{pow()}, \texttt{sqrt()}).
+
+\section*{Definiowanie przycisków}
+Numery pinów dla czterech przycisków:
+\begin{lstlisting}[language=C++]
+#define BTN1 2
+#define BTN2 3
+#define BTN3 4
+#define BTN4 5
+\end{lstlisting}
+Przyciski podłączone do pinów cyfrowych 2–5.
+
+\section*{Konfiguracja wyświetlacza LCD}
+\begin{lstlisting}[language=C++]
+LiquidCrystalI2C lcd(0x27, 16, 2);
+\end{lstlisting}
+Adres I2C: \texttt{0x27}, wyświetlacz: 16 kolumn, 2 wiersze.
+
+\section*{Definiowanie znaku \(\epsilon\)}
+\begin{lstlisting}[language=C++]
+byte epsilon[8] = { 
+    B00000, B00000, B01110, B10000, 
+    B11110, B10000, B01110, B00000 
+};
+\end{lstlisting}
+Znak \(\epsilon\) (8x5 pikseli) do wyświetlenia na LCD.
+
+\section*{Inicjalizacja czujnika MLX90614}
+\begin{lstlisting}[language=C++]
+Adafruit_MLX90614 mlx = Adafruit_MLX90614();
+float ems = 1.0;
+int tempScale = 0;
+\end{lstlisting}
+\begin{itemize}
+    \item \texttt{mlx} – obiekt czujnika MLX90614.
+    \item \texttt{ems = 1.0} – emisyjność (domyślna wartość).
+    \item \texttt{tempScale} – skala temperatury: 0 (°C), 1 (°F), 2 (K).
+\end{itemize}
+
+\section{Połączenie z klawiaturą}
+
+\section*{Odczyt stanów przycisków}
+\begin{lstlisting}[language=C++]
+int BTN1V = digitalRead(BTN1);
+int BTN2V = digitalRead(BTN2);
+int BTN3V = digitalRead(BTN3);
+int BTN4V = digitalRead(BTN4);
+\end{lstlisting}
+Funkcja \texttt{digitalRead()} odczytuje stan każdego z przycisków (BTN1 do BTN4). Zwraca 0 (przycisk wciśnięty) lub 1 (przycisk nie wciśnięty). Zmienna \texttt{BTN1V}, \texttt{BTN2V}, \texttt{BTN3V} i \texttt{BTN4V} przechowują odpowiednio stany przycisków 1, 2, 3 i 4.
+
+\section*{Zwiększenie emisyjności (emissivity)}
+\begin{lstlisting}[language=C++]
+if (!BTN1V && ems < 1.0) {
+    Serial.println("Increased emissivity");
+    ems += 0.01;
+    if (ems > 1.0) ems = 1.0;
+}
+\end{lstlisting}
+Jeśli przycisk \texttt{BTN1} jest wciśnięty i emisyjność (\texttt{ems}) jest mniejsza niż 1.0, program:
+\begin{itemize}
+    \item Wyświetla w monitorze szeregowym komunikat \texttt{"Increased emissivity"}.
+    \item Zwiększa wartość emisyjności o 0.01.
+    \item Upewnia się, że emisyjność nie przekroczy 1.0 (maksymalna dopuszczalna wartość).
+\end{itemize}
+
+\section*{Zmniejszenie emisyjności}
+\begin{lstlisting}[language=C++]
+if (!BTN2V && ems > 0.0) {
+    Serial.println("Decreased emissivity");
+    ems -= 0.01;
+    if (ems < 0.0) ems = 0.0;
+}
+\end{lstlisting}
+Jeśli przycisk \texttt{BTN2} jest wciśnięty i emisyjność (\texttt{ems}) jest większa niż 0.0, program:
+\begin{itemize}
+    \item Wyświetla w monitorze szeregowym komunikat \texttt{"Decreased emissivity"}.
+    \item Zmniejsza wartość emisyjności o 0.01.
+    \item Upewnia się, że emisyjność nie spadnie poniżej 0.0 (minimalna dopuszczalna wartość).
+\end{itemize}
+
+\section*{Resetowanie emisyjności}
+\begin{lstlisting}[language=C++]
+if (!BTN3V) {
+    Serial.println("Emissivity reset");
+    ems = 1.0;
+}
+\end{lstlisting}
+Jeśli przycisk \texttt{BTN3} jest wciśnięty, program:
+\begin{itemize}
+    \item Wyświetla w monitorze szeregowym komunikat \texttt{"Emissivity reset"}.
+    \item Ustawia wartość emisyjności na 1.0.
+\end{itemize}
+
+\section*{Zmiana jednostki}
+\begin{lstlisting}[language=C++]
+if (!BTN4V) {
+    tempScale = (tempScale + 1) % 3;
+    Serial.println(tempScale == 0 ? "Switched to Celsius" : 
+                    (tempScale == 1 ? "Switched to Fahrenheit" : 
+                    "Switched to Kelvin"));
+    delay(300);
+}
+\end{lstlisting}
+Jeśli przycisk \texttt{BTN4} jest wciśnięty, program:
+\begin{itemize}
+    \item Zmienia zmienną \texttt{tempScale}, aby cyklicznie przechodziła przez trzy wartości (Celsius, Fahrenheit, Kelvin). Zmienna \texttt{tempScale} jest inkrementowana, a następnie obliczany jest reszta z dzielenia przez 3, co daje efekt cyklicznego przełączania między 0, 1, 2.
+    \item Wyświetla odpowiedni komunikat w monitorze szeregowym:
+    \begin{itemize}
+        \item \texttt{"Switched to Celsius"} – jeśli \texttt{tempScale} wynosi 0.
+        \item \texttt{"Switched to Fahrenheit"} – jeśli \texttt{tempScale} wynosi 1.
+        \item \texttt{"Switched to Kelvin"} – jeśli \texttt{tempScale} wynosi 2.
+    \end{itemize}
+    \item Funkcja \texttt{delay(300)} wprowadza opóźnienie 300 ms, aby przycisk nie wywołał wielu zmian w krótkim czasie.
+\end{itemize}
+
+
+%\section{Połączenie z klawiaturą}
+
+
+
+\section{Połączenie z czujnikiem temperatury MLX90614}
+
+\section*{Odczyt temperatury}
+
+\begin{lstlisting}[language=C++]
+float ObjTemp = mlx.readObjectTempC();
+float AmbientTemp = mlx.readAmbientTempC();
+float correctedTemp = correctTemperature(ObjTemp, AmbientTemp, ems);
+\end{lstlisting}
+
+W tych liniach kodu odczytywane są dwie temperatury z czujnika MLX90614:
+\begin{itemize}
+    \item \texttt{ObjTemp}: temperatura obiektu, którą czujnik odczytuje w stopniach Celsjusza.
+    \item \texttt{AmbientTemp}: temperatura otoczenia, również odczytywana w stopniach Celsjusza.
+\end{itemize}
+
+Następnie obliczana jest \texttt{correctedTemp}, czyli poprawiona temperatura obiektu na podstawie zmierzonej temperatury obiektu, temperatury otoczenia i wartości emisyjności, wykorzystując funkcję \texttt{correctTemperature()}.
+
+\begin{lstlisting}[language=C++]
+if (isnan(correctedTemp)) {
+    Serial.println("Read error: Temperature NaN");
+    correctedTemp = 0.0;
+}
+\end{lstlisting}
+
+Jeśli funkcja \texttt{correctTemperature()} zwróci wartość "Not a Number" (NaN), co oznacza, że wystąpił błąd w obliczeniach, program wyświetla komunikat o błędzie na monitorze szeregowym, a zmienna \texttt{correctedTemp} jest ustawiana na 0.0.
+
+
+\section{Połączenie z wyświetlaczem LCD HD44780}
+
+%W tym fragmencie kodu tworzony jest obiekt \texttt{lcd}, który reprezentuje wyświetlacz LCD podłączony do mikrokontrolera przez interfejs I2C. Używany jest adres \texttt{0x27}, który jest najczęściej spotykanym adresem dla wyświetlaczy LCD I2C. Liczba kolumn to 16, a liczba wierszy to 2, co oznacza wyświetlacz o wymiarach 16x2.
+
+\section*{Inicjalizacja wyświetlacza LCD}
+
+\begin{lstlisting}[language=C++]
+lcd.init();
+lcd.clear();
+lcd.backlight();
+lcd.setCursor(0, 0);
+lcd.createChar(0, epsilon);
+\end{lstlisting}
+
+Po zainicjowaniu wyświetlacza za pomocą \texttt{lcd.init()}, wyświetlacz zostaje wyczyszczony (\texttt{lcd.clear()}), a podświetlenie zostaje włączone (\texttt{lcd.backlight()}). Kursor jest ustawiany na początek pierwszego wiersza (\texttt{lcd.setCursor(0, 0)}), a funkcja \texttt{lcd.createChar()} pozwala na zdefiniowanie niestandardowego znaku, np. symbolu epsilon, który może być użyty w wyświetlaczu.
+
+\begin{lstlisting}[language=C++]
+lcd.setCursor(0, 0);
+lcd.print("Temp: ");
+lcd.print(displayTemp);
+lcd.print(scaleLabel);
+\end{lstlisting}
+
+W tym fragmencie kodu tekst jest wyświetlany na LCD. Funkcja \texttt{lcd.setCursor(0, 0)} ustawia kursor na początku pierwszego wiersza, a następnie wyświetlany jest tekst "Temp: ", wartość temperatury oraz jednostka skali temperatury (°C, °F, K).
+
+\begin{lstlisting}[language=C++]
+lcd.setCursor(0, 1);
+lcd.write(byte(0));
+lcd.print(" : ");
+lcd.print(ems);
+\end{lstlisting}
+
+Drugi wiersz wyświetlacza pokazuje wartość emisyjności. Funkcja \texttt{lcd.write(byte(0))} wyświetla wcześniej zdefiniowany niestandardowy znak (np. epsilon), a następnie na ekranie pojawia się wartość emisyjności (\texttt{ems}).
+
 %\section{Połączenie z czujnikiem temperatury MLX90614}
-
- 
-
 %\section{Połączenie z wyświetlaczem LCD HD44780}
-
-
-
 %\section{Synchroniczna współpraca LCD i czujnika temperatury z wykorzystaniem mikrokontrolera Arduino}
-
 %W celu synchronicznej współpracy wyświetlacza LCD i czujnika temperatury z mikrokontrolerem Arduino, został napisany program, który odczytuje temperaturę z czujnika i wyświetla ją na monitorze szeregowym i wyświetlaczu LCD. Program został napisany w języku C/C++ z wykorzystaniem bibliotek Wire i LiquidCrystal I2C. % W celu komunikacji z czujnikiem została wykorzystana biblioteka Wire.h.% W celu sprawdzenia poprawności połączenia z czujnikiem został napisany program, który odczytuje temperaturę z czujnika i wyświetla ją na monitorze szeregowym i wyświetlaczu LCD.
-
 %\section{Wykonanie płyty ewaluacyjnej oraz konstrukcja gotowego urządzenia naukowo-badawczego}
 
 \chapter{Uruchomienie, kalibracja}
 
+Po podłączeniu urządzenia do zasilania za pomocą kabla USB, włączy się ono automatycznie. Czujnik nie wymaga przeprowadzenia kalibracji. W przypadku braku odczytów na wyświetlaczu, należy dostosować kontrast przy pomocy potencjometru umiejscowionego po lewej stronie ekranu. Wszelkie problemy z komunikacją z czujnikiem lub wyświetlaczem będą przekazywane przez interfejs szeregowy, którego transmisję można monitorować za pomocą programu Arduino IDE.
+
 %\chapter{Opis wzorów fizycznych}
-
 % Poniżej przedstawiono zestaw wzorów opisujących wymianę ciepła przez promieniowanie oraz związane z nimi parametry fizyczne:
-
 % \begin{itemize}
 %     \item \(\sigma\) – stała Stefana-Boltzmanna, określająca intensywność promieniowania ciała doskonale czarnego,
 %     \item \(\epsilon\) – współczynnik emisyjności (od 0 do 1), opisujący zdolność ciała do emitowania promieniowania w stosunku do ciała doskonale czarnego,
@@ -27,31 +225,23 @@
 %     \item \(T_{\text{meas}}\) – zmierzona temperatura obiektu stopniach Celcjusza (\(C\)),
 %     \item \(T_{\text{real}}\) – rzeczywista temperatura obiektu stopniach Celcjusza (\(C\)).
 % \end{itemize}
-
 % \newpage
-
 % %\section{Wzory}
 % 1. Moc promieniowania cieplnego emitowanego przez ciało:
 % \[
 % P = \sigma \cdot \epsilon \cdot S \cdot \left( T_{\text{env}}^4 - T^4 \right)
 % \]
-
 % 2. Równanie równowagi cieplnej opisujące emisję promieniowania:
 % \[
 % \epsilon \cdot T_{\text{env}}^4 - \epsilon \cdot T_{\text{real}}^4 = T_{\text{env}}^4 - T_{\text{meas}}^4
 % \]
-
 % 3. Współczynnik emisyjności obliczony na podstawie temperatur:
 % \[
 % \epsilon = \frac{T_{\text{env}}^4 - T_{\text{meas}}^4}{T_{\text{env}}^4 - T_{\text{real}}^4}
 % \]
-
 % Na podstawie dwóch różnych temperatur wyznaczono emisyjność badanego obiektu. 
-
 % \vspace{12pt}
-
 % Wzory zostały zastosowane do obliczenia wartości emisyjności:
-
 % \[
 % \epsilon = \frac{30.15^4 - 69.31^4}{30.15^4 - 70.1^4} = 0.9541
 % \]
