@@ -1,8 +1,8 @@
 \chapter{Opis części sprzętowej}
     %\section{Mikrokontroler Arduino Uno}
 
-    Schemat blokowy pokazany na rysunku \ref{fig:schemat} przedstawia zbudowane urządzenie składające się z wyświetlacza HD44780 z konwerterem I2C, układu sterującego Arduino Uno, klawiatury 4-przyciskowej oraz czujnika temperatury MLX90614. Arduino Uno pełni rolę centralnego układu sterującego, przetwarzającego dane i zarządzającego pozostałymi komponentami. Klawiatura 4-przyciskowa umożliwia użytkownikowi interakcję z systemem. Czujnik MLX90614 mierzy temperaturę obiektów w podczerwieni bez konieczności fizycznego kontaktu, przekazując dane do Arduino.
     
+
     \vspace{12pt}
 
     \begin{figure}[h!]
@@ -56,7 +56,7 @@ Dzięki swojej wszechstronności i otwartości Arduino Uno idealnie nadaje się 
 
 \section{Czujnik MLX90614}
 
-    Czujnik MLX90614 pokazany na rysunku \ref{fig:mlx}, to zaawansowany, bezdotykowy termometr na podczerwień, który umożliwia pomiar temperatury obiektów w szerokim zakresie. Działa na napięciu zasilania od 3V do 3.6V i komunikuje się za pomocą interfejsu I2C, co czyni go łatwym w integracji z różnymi systemami, takimi jak Arduino czy inne mikrokontrolery. Dzięki swojej konstrukcji, MLX90614 znajduje zastosowanie w wielu dziedzinach, w tym w medycynie do pomiaru temperatury ciała, w systemach klimatyzacji oraz w automatyzacji przemysłowej.
+    Czujnik MLX90614 pokazany na rysunku \ref{fig:mlx}, to zaawansowany, bezdotykowy termometr na podczerwień, który umożliwia pomiar temperatury obiektów w szerokim zakresie. Działa na napięciu zasilania od 3V do 3.6V i komunikuje się za pomocą interfejsu I2C, co czyni go łatwym w integracji z różnymi systemami, takimi jak Arduino czy inne mikrokontrolery. Dzięki swojej konstrukcji, MLX90614 znajduje zastosowanie w wielu dziedzinach, w tym w medycynie do pomiaru temperatury ciała, w systemach klimatyzacji oraz w automatyzacji przemysłowej \cite{6}.
 
     \begin{figure}[h!]
         \centering
@@ -75,12 +75,12 @@ Dzięki swojej wszechstronności i otwartości Arduino Uno idealnie nadaje się 
 
 \section{Wyświetlacz LCD 16x2}
 
-Wyświetlacz LCD z konwerterem I2C pokazany na rysnuku \ref{fig:lcd}, oparty jest na sterowniku HD44780 to popularne rozwiązanie do wyświetlania tekstu w projektach elektronicznych. Dzięki wbudowanemu konwerterowi I2C znacznie uproszczona jest komunikacja z mikrokontrolerem, ponieważ wymaga jedynie dwóch linii sygnałowych (SDA i SCL), zamiast standardowych 6-8 w przypadku klasycznego podłączenia. Wyświetlacz obsługuje różne konfiguracje, najczęściej spotykane to 16x2 (16 znaków na 2 liniach) lub 20x4 (20 znaków na 4 liniach). Sterownik HD44780 umożliwia łatwe sterowanie wyświetlanymi znakami oraz tworzenie niestandardowych symboli. Dzięki czytelnemu interfejsowi i szerokiemu wsparciu w bibliotekach do Arduino, Raspberry Pi i innych platform, wyświetlacz ten jest chętnie używany w projektach takich jak panele kontrolne, wskaźniki statusu czy urządzenia IoT.
+Wyświetlacz LCD z konwerterem I2C pokazany na rysnuku \ref{fig:lcd}, oparty jest na sterowniku HD44780 to popularne rozwiązanie do wyświetlania tekstu w projektach elektronicznych. Dzięki wbudowanemu konwerterowi I2C znacznie uproszczona jest komunikacja z mikrokontrolerem, ponieważ wymaga jedynie dwóch linii sygnałowych (SDA i SCL), zamiast standardowych 6-8 w przypadku klasycznego podłączenia. Wyświetlacz obsługuje różne konfiguracje, najczęściej spotykane to 16x2 (16 znaków na 2 liniach) lub 20x4 (20 znaków na 4 liniach) \cite{7}. Sterownik HD44780 umożliwia łatwe sterowanie wyświetlanymi znakami oraz tworzenie niestandardowych symboli. Dzięki czytelnemu interfejsowi i szerokiemu wsparciu w bibliotekach do Arduino, Raspberry Pi i innych platform, wyświetlacz ten jest chętnie używany w projektach takich jak panele kontrolne, wskaźniki statusu czy urządzenia IoT.
 
 \begin{figure}[h!]
         \centering
         \includegraphics[width=0.45\textwidth]{images/lcd.png}
-        \caption{Wyświetlacz LCD44780 z konwerterem I2C}
+        \caption{Wyświetlacz LCD44780 z konwerterem I2C \cite{7}}
         \label{fig:lcd}
     \end{figure}
 
@@ -99,7 +99,7 @@ Pokazana na zdjęciu \ref{fig:klaw}  klawiatura to membranowa klawiatura numeryc
 \begin{figure}[h!]
         \centering
         \includegraphics[width=0.35\textwidth]{images/keyboard4pin.jpg}
-        \caption{4-przyciskowa klawiatura}
+        \caption{4-przyciskowa klawiatura \cite{8}}
         \label{fig:klaw}
     \end{figure}
 
@@ -114,6 +114,70 @@ Za pomocą dołączonej 4-przyciskowej klawiatury można:
 \textbf{Specyfikacja:} Prosty układ czterech przycisków, połączony z wejściami Arduino.
 
 \vspace{12pt}
+
+\section*{Rzeczywisty układ}
+
+Na zdjęciu \ref{fig:panel_gorny} przedstawiono rzeczywiste wykonanie urządzenia, którego schemat blokowy zaprezentowano na rysunku \ref{fig:schemat}. Całość została zamontowana na płytce drukowanej i zabezpieczona przezroczystą osłoną, co zapewnia ochronę i wygodę obsługi.
+
+\vspace{12pt}
+
+Fotografia \ref{fig:panel_gorny} przedstawia panel górny urządzenia. Najważniejsze jego elementy:
+
+\begin{enumerate}
+    
+    \item Czujnik MLX90614
+    
+    \item Układ sterujący Arduino Uno
+    
+    \item Wyświetlacz LCD HD44780 z konwerterem I2C
+    
+    \item Klawiatura 4-przyciskowa
+
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.595\textwidth]{images/front_opis.jpg}
+   \caption{Panel górny urządzenia}
+    \label{fig:panel_gorny}
+\end{figure}
+
+\section*{Część mechaniczna}
+
+W oparciu o schemat \ref{fig:schemat} zaprojektowano specjalnie dostosowaną płytkę PCB, której schemat ideowy widoczny jest na rysunku \ref{fig:cad}, natomiast układ ścieżek na płytce drukowanej można dostrzeć na rysunku \ref{fig:pcb}. Łączy ona wszystkie podzespoły w jednej strukturze, gwarantując stabilność połączeń i zmniejszając ryzyko uszkodzeń obwodu. Dodatkowo pozwala na optymalne i przejrzyste rozmieszczenie elementów. Schemat przedstawiony na rysunku \ref{fig:cad} ilustruje sposób połączenia kluczowych komponentów urządzenia.  
+
+\begin{itemize}
+    \item \textbf{Arduino Uno} oznaczone jako U5
+    \item \textbf{Czujnik MLX90614} oznaczony jako U1
+    \item \textbf{Wyświetlacz LCD z interfejsem I2C} oznaczony jako U2 
+    \item \textbf{Konwerter I2C dołączony do wyświetlacza} oznaczony jako U5 
+    \item \textbf{Klawiatura 4-przyciskowa} oznaczona jako U3
+\end{itemize}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/cad.png}
+    \caption{Schemat połączeń między komponentami}
+    \label{fig:cad}
+\end{figure}
+
+Połączenia między elementami opierają się głównie na magistrali I2C oraz standardowych liniach sygnałowych, co minimalizuje liczbę przewodów i upraszcza konstrukcję układu.
+Czujnik temperatury MLX90614 został podłączony do mikrokontrolera Arduino za pomocą interfejsu I2C. Wyświetlacz LCD HD44780 podłączono z wykorzystaniem konwertera pracującego na interfejsie I2C.% Do komunikacji z wyświetlaczem została użyta biblioteka LiquidCrystal\_I2C.h.
+
+\vspace{12pt}
+
+\section*{Płytka PCB}
+
+Po przetestowaniu komponentów na płytce prototypowej, zaprojektowano docelową płytę ewaluacyjną z wykorzystaniem oprogramowania KiCad 8.0. Wykonano układ ścieżek na płytce drukowanej oraz rozmieszczono złącza w odpowiednich miejscach. Płyta ewaluacyjna definiuje rozmiar urządzenia, wynoszący 208 mm x 146 mm,
+po dodaniu obudowy z płyty poliwęglanowej wysokość urządzenia ma wartość 46 mm.
+Płytę ewaluacyjną wykonano z użyciem tradycyjnej technologii termotransferowej, a wytrawianie laminatu przebiegło z użyciem chlorku sodu. Po wykonaniu odpowiednich otworów w płycie, umieszczono złącza i przewody metodą lutowania THT. Wszystkie elementy urządzenia połączone zostały śrubami oraz tulejami mosiężnymi z gwintami w rozmiarze M3. Całość została obudowana dwiema płytami poliwęglanowymi o grubości 3 mm.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/layout.png}
+    \caption{Rozkład ścieżek na płytce drukowanej}
+    \label{fig:pcb}
+\end{figure}
 
 % \section{Zasilanie przez USB}
 % \textbf{Rola:} System jest zasilany przez kabel USB podłączony do Arduino Uno, co upraszcza konstrukcję i eliminuje potrzebę stosowania zewnętrznych źródeł zasilania.

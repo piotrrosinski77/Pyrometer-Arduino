@@ -1,35 +1,17 @@
 \chapter{Opis części programowej}
 %\section{Połączenie z czujnikiem temperatury MLX90614}
 
-Czujnik temperatury MLX90614 został podłączony do mikrokontrolera Arduino za pomocą interfejsu I2C. W celu komunikacji z czujnikiem została wykorzystana biblioteka Wire.h. W celu sprawdzenia poprawności połączenia z czujnikiem został napisany program, który odczytuje temperaturę z czujnika i wyświetla ją na monitorze szeregowym i wyświetlaczu LCD. 
+ 
 
 %\section{Połączenie z wyświetlaczem LCD HD44780}
 
-Wyświetlacz LCD HD44780 podłączono z wykorzystaniem konwertera pracującego na interfejsie I2C. Do komunikacji z wyświetlaczem została użyta biblioteka LiquidCrystal\_I2C.h.
+
 
 %\section{Synchroniczna współpraca LCD i czujnika temperatury z wykorzystaniem mikrokontrolera Arduino}
 
-W celu synchronicznej współpracy wyświetlacza LCD i czujnika temperatury z mikrokontrolerem Arduino, został napisany program, który cyklicznie odczytuje temperaturę z czujnika i wyświetla ją na wyświetlaczu LCD. Program został napisany w języku C/C++ z wykorzystaniem bibliotek Wire.h i LiquidCrystal\_I2C.h.
+%W celu synchronicznej współpracy wyświetlacza LCD i czujnika temperatury z mikrokontrolerem Arduino, został napisany program, który odczytuje temperaturę z czujnika i wyświetla ją na monitorze szeregowym i wyświetlaczu LCD. Program został napisany w języku C/C++ z wykorzystaniem bibliotek Wire i LiquidCrystal I2C. % W celu komunikacji z czujnikiem została wykorzystana biblioteka Wire.h.% W celu sprawdzenia poprawności połączenia z czujnikiem został napisany program, który odczytuje temperaturę z czujnika i wyświetla ją na monitorze szeregowym i wyświetlaczu LCD.
 
 %\section{Wykonanie płyty ewaluacyjnej oraz konstrukcja gotowego urządzenia naukowo-badawczego}
-
-Po przetestowaniu komponentów na płytce prototypowej, zaprojektowano docelową płytę ewaluacyjną z wykorzystaniem oprogramowania KiCad 8.0.  Z wykorzystaniem wspomnianego oprogramowania, ułożono układ ścieżek na płytce drukowanej oraz rozmieszczono złącza w odpowiednich miejscach.
-
-\vspace{12pt}
-
-Płyta ewaluacyjna definiuje rozmiar urządzenia, wynoszący 208 mm x 146 mm,
-po dodaniu obudowy z płyty poliwęglanowej wysokość urządzenia ma wartość 46 mm.
-
-\vspace{12pt}
-
-Płytę ewaluacyjną wykonano z użyciem tradycyjnej technologii termotransferowej, a wytrawianie laminatu przebiegło z użyciem chlorku sodu. Po wykonaniu odpowiednich otworów w płycie, umieszczono złącza i przewody metodą lutowania THT. Wszystkie elementy urządzenia połączone zostały śrubami oraz tulejami mosiężnymi z gwintami w rozmiarze M3. Całość została obudowana dwiema płytami poliwęglanowymi o grubości 3 mm.
-
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\textwidth]{images/layout.png}
-    \caption{Rozkład ścieżek na płytce drukowanej}
-    \label{fig:twoj_obrazek}
-\end{figure}
 
 \chapter{Uruchomienie, kalibracja}
 
