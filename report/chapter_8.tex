@@ -1,6 +1,6 @@
 \chapter{Podsumowanie}
 
-Wyniki testów zostały przedstawione w tabeli \ref{tab:pomiary}. Obserwacje wskazują, że:
+Wyniki testów zostały przedstawione w tabeli \ref{tab:porownanie_pomiarow}. Obserwacje wskazują, że:
 \begin{itemize}
 \item Wyniki pirometru przemysłowego są zbliżone do wyników pirometru testowego, z odchyleniem nieprzekraczającym 4°C w najwyższych temperaturach.
 \item Pirometr przemysłowy, jako urządzenie profesjonalne, rejestruje wyższe wartości
@@ -8,14 +8,14 @@ temperatur w całym zakresie. Rozbieżności te mogą być związane z niedoskon
 kalibracji pirometru Arduino, lub ograniczoną rozdzielczością czujnika MLX90614.
 \item Termometr stykowy wykazuje wyższe różnice w niższych temperaturach, co
 może wynikać z bezwładności termicznej sondy stykowej lub nierównomierności.\item Wraz ze wzrostem temperatury, różnice między wynikami z pirometru Arduino
-a pirometru przemysłowego stają się bardziej widoczne. Pirometr Arduino
+a pirometru przemysłowego stają się bardziej widoczne. Czujnik MLX90614
 odnotowuje wartości niższe niż pirometr przemysłowy w wyższych zakresach
 temperatur (powyżej 120°C), co sugeruje możliwość systematycznych błędów
-wynikających z niedoskonałości kalibracji. \item Wraz ze wzrostem temperatury, różnice między wynikami z pirometru Arduino a pirometru przemysłowego stają się bardziej widoczne. Pirometr Arduino
+wynikających z niedoskonałości fabrycznej kalibracji. \item Wraz ze wzrostem temperatury, różnice między wynikami z czujnika MLX90614 a pirometru przemysłowego stają się bardziej widoczne. MLX90614
 odnotowuje wartości niższe niż pirometr przemysłowy w wyższych zakresach
 temperatur (powyżej 120°C), co sugeruje możliwość systematycznych błędów
 wynikających z niedoskonałości kalibracji.
-\item Wraz ze wzrostem temperatury, różnice między wynikami z pirometru Arduino
+%\item Wraz ze wzrostem temperatury, różnice między wynikami z pirometru Arduino
 a pirometru przemysłowego stają się bardziej widoczne. Pirometr Arduino
 odnotowuje wartości niższe niż pirometr przemysłowy w wyższych zakresach
 temperatur (powyżej 120°C), co sugeruje możliwość systematycznych błędów
@@ -27,7 +27,7 @@ Podsumowując, pirometr spełnia założenia projektowe i może być stosowany d
 %\section{Potencjalne przyczyny błędów}
 \begin{itemize}
     \item \textbf{Emisyjność:} Ustawienia emisyjności mają kluczowy wpływ na wyniki pomiarów. Niedokładne dobranie tej wartości dla badanych materiałów może prowadzić do błędów w pomiarach.
-    \item \textbf{Kalibracja:} Pirometr Arduino, jako urządzenie prototypowe, nie posiada profesjonalnej kalibracji fabrycznej, co wpływa na dokładność pomiarów.
+    %\item \textbf{Kalibracja:} Pirometr Arduino, jako urządzenie prototypowe, nie posiada profesjonalnej kalibracji fabrycznej, co wpływa na dokładność pomiarów.
     \item \textbf{Czujnik MLX90614:} Czujnik zastosowany w urządzeniu charakteryzuje się ograniczoną dokładnością w wyższych zakresach temperatur, co mogło wpłynąć na odchylenia w pomiarach.
     \item \textbf{Wpływ środowiska:} Czynniki takie jak wilgotność, temperatura otoczenia czy odbicia promieniowania podczerwonego mogą wprowadzać dodatkowe błędy.
 \end{itemize}
@@ -40,7 +40,14 @@ Podsumowując, pirometr spełnia założenia projektowe i może być stosowany d
 
 \section*{Pełny listing kodu źródłowego}
 
-\begin{lstlisting}[style=mystyle]
+\begin{lstlisting}[language=C++]
+    // Source code implementing the MLX90614 sensor with an LCD display and keypad as a pyrometer using the Arduino platform
+
+    // Authors :
+    // Patryk Niczke
+    // Piotr Rosinski
+    // Przemyslaw Lis
+
     #include <Arduino.h>
     #include <Adafruit_MLX90614.h>
     #include <LiquidCrystal_I2C.h>
@@ -54,10 +61,9 @@ Podsumowując, pirometr spełnia założenia projektowe i może być stosowany d
     
     // Set I2C address for the LCD (change if needed, e.g., 0x27)
     LiquidCrystal_I2C lcd(0x27, 16, 2); // 16 chars, 2 lines
-    
     // Custom epsilon character
     byte epsilon[8] = { B00000, B00000, B01110, B10000, B11110, B10000, B01110, B00000 };
-    
+
     // Initialize MLX90614 sensor
     Adafruit_MLX90614 mlx = Adafruit_MLX90614();
     float ems = 1.0;
@@ -65,108 +71,163 @@ Podsumowując, pirometr spełnia założenia projektowe i może być stosowany d
     int tempScale = 0; // 0 - Celsius, 1 - Fahrenheit, 2 - Kelvin
     
     float correctTemperature(float measuredTemp, float ambientTemp, float emissivity) {
-        float measuredTempK = measuredTemp + 273.15;
-        float ambientTempK = ambientTemp + 273.15;
-        float trueTempK = pow((pow(measuredTempK, 4) - (1 - emissivity) * pow(ambientTempK, 4)) / emissivity, 0.25);
-        return trueTempK - 273.15;
+    // Convert measured temperature from Celsius to Kelvin
+    float measuredTempK = measuredTemp + 273.15;
+    // Convert ambient temperature from Celsius to Kelvin
+    float ambientTempK = ambientTemp + 273.15;
+    // Calculate true temperature in Kelvin
+    float trueTempK = pow((pow(measuredTempK, 4) - (1 - emissivity) * pow(ambientTempK, 4)) / emissivity, 0.25);
+    // Convert true temperature from Kelvin to Celsius
+    return trueTempK - 273.15;
+}
+
+void setup() {
+    delay(200);
+    // Set button pins as input with pull-up resistors
+    pinMode(BTN1, INPUT_PULLUP);
+    pinMode(BTN2, INPUT_PULLUP);
+    pinMode(BTN3, INPUT_PULLUP);
+    pinMode(BTN4, INPUT_PULLUP);
+    
+    // Initialize serial communication
+    Serial.begin(9600);
+    // Initialize LCD display
+    lcd.init();
+    lcd.clear();
+    lcd.backlight();
+    lcd.setCursor(0, 0);
+    lcd.createChar(0, epsilon);
+    
+    // Check if emissivity value is valid
+    if (isnan(ems)) {
+        ems = 1.0;
     }
-    
-    void setup() {
-        delay(200);
-        pinMode(BTN1, INPUT_PULLUP);
-        pinMode(BTN2, INPUT_PULLUP);
-        pinMode(BTN3, INPUT_PULLUP);
-        pinMode(BTN4, INPUT_PULLUP);
-        Serial.begin(9600);
-        lcd.init();
-        lcd.clear();
-        lcd.backlight();
-        lcd.setCursor(0, 0);
-        lcd.createChar(0, epsilon);
-        if (isnan(ems)) {
-            ems = 1.0;
-        }
-        if (!mlx.begin()) {
-            lcd.setCursor(0, 1);
-            lcd.print("MLX error!");
-            Serial.print("MLX error!\n");
-            while (1);
-        }
-    }
-    
-    void loop() {
-        int BTN1V = digitalRead(BTN1);
-        int BTN2V = digitalRead(BTN2);
-        int BTN3V = digitalRead(BTN3);
-        int BTN4V = digitalRead(BTN4);
-    
-        if (!BTN1V && ems < 1.0) {
-            Serial.println("Increased emissivity");
-            ems += 0.01;
-            if (ems > 1.0) ems = 1.0;
-        }
-    
-        if (!BTN2V && ems > 0.0) {
-            Serial.println("Decreased emissivity");
-            ems -= 0.01;
-            if (ems < 0.0) ems = 0.0;
-        }
-    
-        if (!BTN3V) {
-            Serial.println("Emissivity reset");
-            ems = 1.0;
-        }
-    
-        if (!BTN4V) {
-            tempScale = (tempScale + 1) % 3;
-            Serial.println(tempScale == 0 ? "Switched to Celsius" : (tempScale == 1 ? "Switched to Fahrenheit" : "Switched to Kelvin"));
-            delay(300);
-        }
-    
-        float ObjTemp = mlx.readObjectTempC();
-        float AmbientTemp = mlx.readAmbientTempC();
-        float correctedTemp = correctTemperature(ObjTemp, AmbientTemp, ems);
-    
-        if (isnan(correctedTemp)) {
-            Serial.println("Read error: Temperature NaN");
-            correctedTemp = 0.0;
-        }
-    
-        float displayTemp = correctedTemp;
-        char scaleLabel = 'C';
-        bool showDegreeSymbol = true;
-    
-        if (tempScale == 1) {
-            displayTemp = correctedTemp * 9.0 / 5.0 + 32.0;
-            scaleLabel = 'F';
-        } else if (tempScale == 2) {
-            displayTemp = correctedTemp + 273.15;
-            scaleLabel = 'K';
-            showDegreeSymbol = false;
-        }
-    
-        Serial.print("Temperature: ");
-        Serial.print(displayTemp);
-        Serial.print(" ");
-        Serial.print(scaleLabel);
-        Serial.print("\nEnvironment Temperature: ");
-        Serial.print(AmbientTemp);
-        Serial.print("\nEmissivity: ");
-        Serial.println(ems);
-    
-        lcd.setCursor(0, 0);
-        lcd.print("Temp:");
-        lcd.print(displayTemp);
-        if (showDegreeSymbol) {
-            lcd.print((char)223);
-        }
-        lcd.print(scaleLabel);
-    
+    // Initialize MLX90614 sensor
+    if (!mlx.begin()) {
         lcd.setCursor(0, 1);
-        lcd.write(byte(0));
-        lcd.print(":");
-        lcd.print(ems);
-        delay(500);
+        lcd.print("MLX error!");
+        Serial.print("MLX error!\n");
+        while (1);
+    }
+}
+
+void loop() {
+    // Read button values
+    int BTN1V = digitalRead(BTN1);
+    int BTN2V = digitalRead(BTN2);
+    int BTN3V = digitalRead(BTN3);
+    int BTN4V = digitalRead(BTN4);
+    
+    // Increase emissivity
+    if (!BTN1V && ems < 1.0) {
+        Serial.println("Increased emissivity");
+        ems += 0.01;
+        if (ems > 1.0) ems = 1.0;
+    }
+    // Decrease emissivity
+    if (!BTN2V && ems > 0.0) {
+        Serial.println("Decreased emissivity");
+        ems -= 0.01;
+        if (ems < 0.0) ems = 0.0;
+    }
+    // Reset emissivity
+    if (!BTN3V) {
+        Serial.println("Emissivity reset");
+        ems = 1.0;
+    }
+    // Switch temperature scale
+    if (!BTN4V) {
+        tempScale = (tempScale + 1) % 3;
+        Serial.println(tempScale == 0 ? "Switched to Celsius" : (tempScale == 1 ? "Switched to Fahrenheit" : "Switched to Kelvin"));
+        delay(300);
+    } 
+    // Read object and ambient temperatures
+    float ObjTemp = mlx.readObjectTempC();
+    float AmbientTemp = mlx.readAmbientTempC();
+    // Correct object temperature
+    float correctedTemp = correctTemperature(ObjTemp, AmbientTemp, ems);
+    
+    // Check if temperature is valid
+    if (isnan(correctedTemp)) {
+        Serial.println("Read error: Temperature NaN");
+        correctedTemp = 0.0;
+    }
+    
+    // Display temperature on LCD
+    float displayTemp = correctedTemp;
+    char scaleLabel = 'C';
+    bool showDegreeSymbol = true;
+    
+    // Convert temperature to selected scale
+    if (tempScale == 1) {
+        displayTemp = correctedTemp * 9.0 / 5.0 + 32.0;
+        scaleLabel = 'F';
+    } else if (tempScale == 2) {
+        displayTemp = correctedTemp + 273.15;
+        scaleLabel = 'K';
+        showDegreeSymbol = false;
+    }
+    
+    // Display temperature on serial monitor
+    Serial.print("Temperature: ");
+    Serial.print(displayTemp);
+    Serial.print(" ");
+    Serial.print(scaleLabel);
+    Serial.print("\nEnvironment Temperature: ");
+    Serial.print(AmbientTemp);
+    Serial.print("\nEmissivity: ");
+    Serial.println(ems);
+    
+    // Display temperature on LCD
+    lcd.setCursor(0, 0);
+    lcd.print("Temp: ");
+    lcd.print(displayTemp);
+    if (showDegreeSymbol) {
+        lcd.print((char)223);
+    }
+    lcd.print(scaleLabel);
+    // Display emissivity on LCD
+    lcd.setCursor(0, 1);
+    lcd.write(byte(0));
+    lcd.print(": ");
+    lcd.print(ems);
+    delay(500);
+    }
     \end{lstlisting}
 
     \chapter*{Program ćwiczenia dla studentów}
+
+    %\section*{Program ćwiczenia dla studentów}
+
+\subsection*{BADANIE TEMPERATURY POWIERZCHNI CIEPŁOWYTWARZAJĄCYCH MATERIAŁÓW}
+
+\subsubsection*{Cel ćwiczenia}
+Celem ćwiczenia jest pomiar temperatury powierzchni różnych materiałów ciepłowytwarzających za pomocą pirometru oraz analiza wpływu rodzaju materiału i koloru powierzchni na dokładność pomiaru.
+
+\subsubsection*{Potrzebne materiały}
+Pirometr, materiały ciepłowytwarzające o różnych kolorach i właściwościach emisji (np. metal, drewno, plastik), źródło ciepła, statyw do pirometru, taśmy lub oznaczniki do identyfikacji powierzchni.
+
+\subsubsection*{Przebieg ćwiczenia}
+\begin{enumerate}
+    \item Przygotowanie próbek materiałów o różnych właściwościach emisji i kolorach:
+    \begin{itemize}
+        \item Ustaw próbki materiałów w bezpiecznej odległości od źródła ciepła.
+        \item Oznacz próbki w celu ich łatwej identyfikacji.
+    \end{itemize}
+    \item Pomiar temperatury za pomocą pirometru:
+    \begin{itemize}
+        \item Skieruj pirometr na powierzchnię każdej próbki z jednakowej odległości.
+        \item Zanotuj odczyt temperatury z wyświetlacza pirometru dla każdej próbki.
+    \end{itemize}
+    \item Analiza wyników:
+    \begin{itemize}
+        \item Porównaj odczyty temperatury dla próbek wykonanych z różnych materiałów.
+        \item Zastanów się, jak kolor i właściwości emisji powierzchni wpływają na dokładność pomiaru.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection*{Wnioski}
+Na podstawie wyników pomiarów i analizy wyciągnij wnioski dotyczące wpływu rodzaju materiału i koloru powierzchni na dokładność pomiaru temperatury pirometrem. Oceń również potencjalne źródła błędów w przeprowadzonym ćwiczeniu.
+
+\subsubsection*{Dodatkowo}
+Zaprojektuj eksperyment, w którym porównasz odczyty temperatury dla tych samych materiałów, ale o różnym wykończeniu powierzchni (np. matowym i błyszczącym). Omów wyniki w kontekście właściwości emisji powierzchni badanych próbek.
