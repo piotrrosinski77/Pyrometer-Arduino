@@ -24,8 +24,8 @@ This project initially involved setting up the components on a breadboard:
 - Jumper Wires
 - Breadboard
 
-##ma Final Design
+## Final Design
 
 During the course of the project, we decided to design a custom PCB using KiCad 8.0 and etched it ourselves to achieve a more compact and durable solution.
 
-<img src="img/pyr2.jpg" width="300px"> <img src="img/pyr1.jpg" width="300px"> <img src="img/pyr3.jpg" width="300px">
+<img src="img/pyr1.jpg" width="300px"> <img src="img/pyr3.jpg" width="300px">
