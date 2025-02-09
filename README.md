@@ -14,10 +14,16 @@ This project utilizes the MLX90614 infrared temperature sensor to detect the sur
 - Display Options: Output temperature data to an LCD screen or send it to a computer for logging and analysis.
 - Arduino-Compatible: Fully programmable and customizable via the Arduino IDE.
 
-## Components Required:
+## Prototyping on a Breadboard
+
+This project initially involved setting up the components on a breadboard:
 - Arduino Board (e.g., Uno, Nano)
 - MLX90614 Infrared Temperature Sensor
 - 16x2 LCD Screen (optional, for local display)
 - I2C Module for LCD (optional, if using I2C communication)
 - Jumper Wires
-- Breadboard (optional)
+- Breadboard
+
+##ma Final Design
+
+During the course of the project, we decided to design a custom PCB using KiCad 8.0 and etched it ourselves to achieve a more compact and durable solution.
